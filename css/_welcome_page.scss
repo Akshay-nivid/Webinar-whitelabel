@@ -1,11 +1,14 @@
 body.welcome-page {
     background: inherit;
     overflow: auto;
+    background-image: $welcomePageHeaderBackground;
+    background-position: $welcomePageHeaderBackgroundPosition;
+    background-repeat: $welcomePageHeaderBackgroundRepeat;
+    background-size: $welcomePageHeaderBackgroundSize;
 }
 
 .welcome {
-    background-image: $welcomePageBackground;
-    background-color: #fff;
+
     display: flex;
     flex-direction: column;
     font-family: $welcomePageFontFamily;
@@ -14,12 +17,8 @@ body.welcome-page {
     position: relative;
 
     .header {
-        background-image: $welcomePageHeaderBackground;
-        background-position: $welcomePageHeaderBackgroundPosition;
-        background-repeat: $welcomePageHeaderBackgroundRepeat;
-        background-size: $welcomePageHeaderBackgroundSize;
+
         padding: $welcomePageHeaderPadding;
-        background-color: #131519;
         overflow: hidden;
         position: relative;
 
@@ -70,19 +69,23 @@ body.welcome-page {
             text-align: $welcomePageHeaderTextAlign;
             border-radius: 5px;
             padding: 5px;
+
             .not-allow-title-character-text {
                 float: right;
                 line-height: 1.9;
-            };
+            }
+
+            ;
+
             .jitsi-icon {
                 margin-right: 9px;
                 float: left;
 
 
                 svg {
-                    fill:#f03e3e;
+                    fill: #f03e3e;
 
-                    & > *:first-child {
+                    &>*:first-child {
                         fill: none !important;
                     }
                 }
@@ -106,7 +109,7 @@ body.welcome-page {
                 svg {
                     fill: rgb(215, 121, 118);
 
-                    & > *:first-child {
+                    &>*:first-child {
                         fill: none !important;
                     }
                 }
@@ -178,7 +181,7 @@ body.welcome-page {
         display: $welcomePageTabContainerDisplay;
         flex-direction: column;
 
-        .tab-content{
+        .tab-content {
             display: $welcomePageTabContentDisplay;
             height: 250px;
             margin: 5px 0px;
@@ -225,6 +228,7 @@ body.welcome-page {
         cursor: pointer;
         padding: 16px 20px;
         transition: all 0.2s;
+
         &:focus-within {
             outline: auto 2px $welcomePageButtonFocusOutline;
         }
@@ -277,7 +281,7 @@ body.welcome-page {
     }
 
     .welcome-cards-container {
-        color:#131519;
+        color: #131519;
         padding-top: 40px;
     }
 
@@ -289,7 +293,7 @@ body.welcome-page {
         max-width: 688px;
         margin: auto;
 
-        > div {
+        >div {
             margin-bottom: 16px;
         }
     }

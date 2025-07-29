@@ -392,7 +392,7 @@ export default class AbstractButton<P extends IProps, S = any> extends Component
             icon: this._getIcon(),
             label: this._getLabel(),
             labelProps: this.labelProps,
-            styles: this._getStyles(),
+            // styles: this._getStyles(),
             toggled: this._isToggled(),
             tooltip: this._getTooltip()
         };
