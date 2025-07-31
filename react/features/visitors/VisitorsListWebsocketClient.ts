@@ -3,6 +3,7 @@ import { Client } from '@stomp/stompjs';
 import logger from './logger';
 import { WebsocketClient } from './websocket-client';
 
+
 /**
  * Websocket client impl, used for visitors list.
  * Uses STOMP for authenticating (https://stomp.github.io/).

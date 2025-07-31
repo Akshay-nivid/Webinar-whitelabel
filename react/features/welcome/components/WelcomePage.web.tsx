@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import axios from 'axios';
+import moment from 'moment';
 import { isMobileBrowser } from '../../base/environment/utils';
 import { translate, translateToHTML } from '../../base/i18n/functions';
 import Icon from '../../base/icons/components/Icon';
@@ -38,6 +39,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
     _additionalToolbarContentTemplate: HTMLTemplateElement | null;
     _titleHasNotAllowCharacter: boolean;
 
+
     /**
      * Default values for {@code WelcomePage} component's properties.
      *
@@ -61,8 +63,9 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
             ...this.state,
 
             generateRoomNames:
-                interfaceConfig.GENERATE_ROOMNAMES_ON_WELCOME_PAGE
+                interfaceConfig.GENERATE_ROOMNAMES_ON_WELCOME_PAGE,
         };
+
 
         /**
       * Used To display a warning massage if the title input has no allow character.
@@ -232,7 +235,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                         <div id='enter_room' style={{ borderRadius: '30px' }}>
                             <div className='join-meeting-container' style={{ borderRadius: '30px' }}>
                                 <div className='enter-room-input-container'>
-                                    <form onSubmit={this._onFormSubmit}>
+                                    <form >
                                         <input
                                             aria-disabled='false'
                                             aria-label='Meeting name input'
@@ -254,7 +257,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                                     aria-label='Start meeting'
                                     className='welcome-page-button'
                                     id='enter_room_button'
-                                    onClick={this._onFormSubmit}
+                                    onClick={(e)=>this._onFormSubmit(this.state.room,e)}
                                     tabIndex={0}
                                     style={{ borderRadius: '30px' }}
                                     type='button'>
@@ -313,10 +316,25 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
      * @private
      * @returns {void}
      */
-    _onFormSubmit(event: React.FormEvent) {
-        // return
-        event.preventDefault();
+    _onFormSubmit(room:string,event?: React.FormEvent) {
+        super.componentDidMount();
+        if (event) event.preventDefault();
+        axios.get(`http://localhost:4444/api/event/meta/${room}`)
+            .then(response => {
 
+                let starttime = response.data.event.eventStartTime
+                let endtime = response.data.event.eventEndTime
+                if (moment(endtime).isBefore(moment())) {
+                    console.log("The event is in the past.");
+                }
+                if (moment(starttime).isAfter(moment())) {
+                    console.log("The event is in the future.");
+                }
+            })
+            .catch(error => {
+                console.error('---------------------------------------API error:', error);
+            });
+return
         if (!this._roomInputRef || this._roomInputRef.reportValidity()) {
             this._onJoin();
         }
