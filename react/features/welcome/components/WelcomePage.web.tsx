@@ -219,9 +219,9 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
             return;
         }
 
-        axios.get(`${this._API}/api/event/meta/${trimmedRoom}`)
+        axios.get(`${this._API}/api/event/details/${trimmedRoom}`)
             .then(({ data }) => {
-                const eventData = data?.event;
+                const eventData = data;
                 if (!eventData) return this._setErrorState('noData');
 
                 const now = moment();
