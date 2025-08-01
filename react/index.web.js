@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Bounce } from 'react-toastify';
 import { App } from './features/app/components/App.web';
 import { getLogger } from './features/base/logging/functions';
 import Platform from './features/base/react/Platform.web';
@@ -77,9 +79,23 @@ globalNS.renderEntryPoint = ({
     props = {},
     elementId = 'react'
 }) => {
-    /* eslint-disable-next-line react/no-deprecated */
     ReactDOM.render(
-        <Component { ...props } />,
+        <>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+                transition={Bounce}
+            />
+            <Component { ...props } />
+        </>,
         document.getElementById(elementId)
     );
 };
