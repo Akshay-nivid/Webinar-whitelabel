@@ -18,7 +18,7 @@ import { toast } from 'react-toastify';
 import { AbstractWelcomePage, IProps, _mapStateToProps } from './AbstractWelcomePage';
 import Tabs from './Tabs';
 
-export const ROOM_NAME_VALIDATE_PATTERN_STR = '^[^?&:\u0022\u0027%#]+$';
+export const ROOM_NAME_VALIDATE_PATTERN_STR = "^conf-\d{4}-[a-z0-9]{4}$"
 
 class WelcomePage extends AbstractWelcomePage<IProps> {
 
@@ -55,7 +55,6 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
         this._setAdditionalContentRef = this._setAdditionalContentRef.bind(this);
         this._setRoomInputRef = this._setRoomInputRef.bind(this);
         this._setAdditionalToolbarContentRef = this._setAdditionalToolbarContentRef.bind(this);
-        this._renderFooter = this._renderFooter.bind(this);
     }
 
     override componentDidMount() {
@@ -135,11 +134,11 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                         <form>
                             <input
                                 className="enter-room-input"
-                                placeholder="Enter conference ID"
+                                placeholder="enter conference ID in format 'CONF-XXXX-XXXX'"
                                 pattern={ROOM_NAME_VALIDATE_PATTERN_STR}
                                 type="text"
                                 value={this.state.room}
-                                onChange={this._onRoomChange}
+                                onChange={(e) => this._onRoomChange(e.target?.value)}
                                 ref={this._setRoomInputRef}
                                 autoFocus
                                 aria-label="Meeting name input"
@@ -247,40 +246,15 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
             });
     }
 
-    _onRoomChange(event: React.ChangeEvent<HTMLInputElement>) {
+    _onRoomChange(value: string) {
         const forbiddenChars = ['?', '&', ':', '\'', '"', '%', '#', '.'];
+
         this._titleHasNotAllowCharacter = forbiddenChars.some(char =>
-            event.target.value.includes(char)
+            value.includes(char)
         );
-        super._onRoomChange(event.target.value);
+        super._onRoomChange(value);
     }
 
-    _renderTabs() {
-        if (isMobileBrowser()) return null;
-
-        const { _calendarEnabled, _recentListEnabled, t } = this.props;
-        const tabs = [];
-
-        if (_calendarEnabled) {
-            tabs.push({ id: 'calendar', label: t('welcomepage.upcomingMeetings'), content: <CalendarList /> });
-        }
-
-        if (_recentListEnabled) {
-            tabs.push({ id: 'recent', label: t('welcomepage.recentMeetings'), content: <RecentList /> });
-        }
-
-        return tabs.length ? <Tabs accessibilityLabel={t('welcomepage.meetingsAccessibilityLabel')} tabs={tabs} /> : null;
-    }
-
-    _renderFooter() {
-        const {
-            _deeplinkingCfg: {
-                ios = { downloadLink: undefined },
-                android = { fDroidUrl: undefined, downloadLink: undefined }
-            }
-        } = this.props;
-
-    }
 
     _setAdditionalCardRef(el: HTMLDivElement) { this._additionalCardRef = el; }
     _setAdditionalContentRef(el: HTMLDivElement) { this._additionalContentRef = el; }

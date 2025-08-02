@@ -13,7 +13,9 @@
         "noImplicitOverride": true,
         "strictPropertyInitialization": false,
         "resolveJsonModule": true,
-        "moduleSuffixes": [".web", ""]
+        "moduleSuffixes": [".web", ""],
+        "typeRoots": ["./node_modules/@types", "./globals.d.ts"]
+
     },
     "exclude": [
         "node_modules",

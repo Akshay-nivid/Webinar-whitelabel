@@ -13,7 +13,6 @@ import WhiteboardApp from './features/whiteboard/components/web/WhiteboardApp';
 
 const logger = getLogger('index.web');
 
-// Add global loggers.
 window.addEventListener('error', ev => {
     logger.error(
         `UnhandledError: ${ev.message}`,
@@ -29,18 +28,9 @@ window.addEventListener('unhandledrejection', ev => {
         'StackTrace: ', ev.reason?.stack);
 });
 
-// Workaround for the issue when returning to a page with the back button and
-// the page is loaded from the 'back-forward' cache on iOS which causes nothing
-// to be rendered.
 if (Platform.OS === 'ios') {
     window.addEventListener('pageshow', event => {
-        // Detect pages loaded from the 'back-forward' cache
-        // (https://webkit.org/blog/516/webkit-page-cache-ii-the-unload-event/)
         if (event.persisted) {
-            // Maybe there is a more graceful approach but in the moment of
-            // writing nothing else resolves the issue. I tried to execute our
-            // DOMContentLoaded handler but it seems that the 'onpageshow' event
-            // is triggered only when 'window.location.reload()' code exists.
             window.location.reload();
         }
     });
@@ -49,10 +39,7 @@ if (Platform.OS === 'ios') {
 const globalNS = getJitsiMeetGlobalNS();
 const connectionTimes = getJitsiMeetGlobalNSConnectionTimes();
 
-// Used to check if the load event has been fired.
 globalNS.hasLoaded = false;
-
-// Used for automated performance tests.
 connectionTimes['index.loaded'] = window.indexLoadedTime;
 
 window.addEventListener('load', () => {
