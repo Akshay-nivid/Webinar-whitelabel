@@ -5,6 +5,7 @@ body.welcome-page {
     background-position: $welcomePageHeaderBackgroundPosition;
     background-repeat: $welcomePageHeaderBackgroundRepeat;
     background-size: $welcomePageHeaderBackgroundSize;
+    font-family: $baseFontFamily, sans-serif !important;
 }
 
 .welcome {
@@ -29,7 +30,7 @@ body.welcome-page {
             z-index: $zindex2;
             align-items: center;
             position: relative;
-            max-width: 688px;
+            max-width: 100%;
         }
 
         .header-watermark-container {

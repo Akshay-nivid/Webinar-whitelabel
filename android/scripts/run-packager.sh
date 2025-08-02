@@ -5,7 +5,7 @@
 
 THIS_DIR=$(cd -P "$(dirname "$(readlink "${BASH_SOURCE[0]}" || echo "${BASH_SOURCE[0]}")")" && pwd)
 
-export RCT_METRO_PORT="${RCT_METRO_PORT:=8081}"
+export RCT_METRO_PORT="${RCT_METRO_PORT:=8080}"
 echo "export RCT_METRO_PORT=${RCT_METRO_PORT}" > "${THIS_DIR}/../../node_modules/react-native/scripts/.packager.env"
 
 adb reverse tcp:$RCT_METRO_PORT tcp:$RCT_METRO_PORT

@@ -94,7 +94,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                             )}
                         </div>
 
-                        <h1 className="header-text-title">{t('welcomepage.headerTitle')}</h1>
+                        <h3 className="header-text-title">{t('welcomepage.headerTitle')}</h3>
                         <span className="header-text-subtitle">{t('welcomepage.headerSubtitle')}</span>
 
                         {this._renderRoomInput()}
@@ -123,7 +123,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                         <form>
                             <input
                                 className="enter-room-input"
-                                placeholder="enter conference ID in format 'CONF-XXXX-XXXX'"
+                                placeholder="enter conference code"
                                 type="text"
                                 value={this.state.room}
                                 onChange={(e) => this._onRoomChange(e.target?.value)}

@@ -43,7 +43,7 @@
 static NSURL *serverRootWithHost(NSString *host) {
     return
         [NSURL URLWithString:
-                [NSString stringWithFormat:@"http://%@:8081/", host]];
+                [NSString stringWithFormat:@"http://%@:8080/", host]];
 }
 
 - (BOOL)isPackagerRunning:(NSString *)host {
