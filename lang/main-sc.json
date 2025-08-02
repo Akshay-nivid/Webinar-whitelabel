@@ -1359,7 +1359,7 @@
         "recentListDelete": "Cantzella s'elementu",
         "recentListEmpty": "Sa lista de reghentes est bòida. Tzarra cun s'iscuadra tua e as a agatare totu is riuniones reghentes tuas inoghe.",
         "reducedUIText": "Ti donamus su benebènnidu a {{app}}!",
-        "roomNameAllowedChars": "Su nòmine de sa riunione non podet inclùdere custos caràteres:  ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Su nòmine de sa riunione non podet inclùdere custos caràteres:  ?, &, :, ', \" , /, %, #.",
         "roomname": "Inserta su nòmine de s'aposentu",
         "roomnameHint": "Inserta su nòmine o s'URL de s'aposentu a su chi boles intrare. Ti podes imbentare unu nòmine, bastat chi ddu fatzas ischire a sa gente chi ses addobiende pro chi ddu potzant insertare su pròpiu.",
         "sendFeedback": "Imbia cummentos",

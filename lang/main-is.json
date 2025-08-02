@@ -1509,7 +1509,7 @@
         "recentListEmpty": "Listinn þinn yfir nýlega atburði er tómur. Spjallaðu við teymið þitt og muntu þá finna alla nýlega fundi hér.",
         "recentMeetings": "Nýlegir fundir hjá þér",
         "reducedUIText": "Velkomin í {{app}}!",
-        "roomNameAllowedChars": "Heiti fundar ætti ekki að innihalda neinn eftirfarandi stafa: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Heiti fundar ætti ekki að innihalda neinn eftirfarandi stafa: ?, &, :, ', \", /, %, #.",
         "roomname": "Settu inn nafn á fjarfundi",
         "roomnameHint": "Settu inn nafn eða slóð á fjarfundinum sem þú ætlar að taka þátt í. Þú getur skáldað eitthvað nafn, þú verður bara að láta aðra þáttakendur vita svo þeir setji inn sama nafnið.",
         "sendFeedback": "Senda umsögn",

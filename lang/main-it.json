@@ -1613,7 +1613,7 @@
         "recentListEmpty": "La lista delle riunioni recenti è vuota. Parla con il tuo gruppo e troverai tutte le riunioni recenti qui.",
         "recentMeetings": "Riunioni recenti",
         "reducedUIText": "Benvenuto in {{app}}!",
-        "roomNameAllowedChars": "Il nome della riunione non deve contenere questi caratteri: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Il nome della riunione non deve contenere questi caratteri: ?, &, :, ', \", /, %, #.",
         "roomname": "Inserisci il nome della riunione",
         "roomnameHint": "Inserisci il nome o l'URL della riunione a cui vuoi accedere. Puoi anche inventarti un nome, assicurati solo che le persone con cui vuoi collegarti lo conoscano, così che possano inserire lo stesso nome.",
         "sendFeedback": "Invia feedback",

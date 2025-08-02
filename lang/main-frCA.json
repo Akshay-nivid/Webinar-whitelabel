@@ -1518,7 +1518,7 @@
         "recentListEmpty": "Votre liste récente est actuellement vide. Clavardez avec votre équipe et vous y trouverez toutes vos réunions récentes.",
         "recentMeetings": "Vos réunions récentes",
         "reducedUIText": "Bienvenue sur {{app}}!",
-        "roomNameAllowedChars": "Le nom de la réunion ne doit contenir aucun de ces caractères : ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Le nom de la réunion ne doit contenir aucun de ces caractères : ?, &, :, ', \", /,%, #.",
         "roomname": "Entrer le nom de la salle",
         "roomnameHint": "Entrez le nom ou l'URL de la salle que vous voulez rejoindre. Vous pouvez inventer un nom, mais assurez-vous de le partager avec les participants de la réunion pour qu'ils utilisent le même nom.",
         "sendFeedback": "Envoyer un commentaire",

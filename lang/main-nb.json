@@ -1564,7 +1564,7 @@
         "recentListEmpty": "Listen din er for øyeblikket tom. Chat med teamet ditt, så finner du alle dine nylige møter her.",
         "recentMeetings": "Dine nylige møter",
         "reducedUIText": "Velkommen til {{app}}!",
-        "roomNameAllowedChars": "Møtenavnet skal ikke inneholde noen av disse tegnene: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Møtenavnet skal ikke inneholde noen av disse tegnene: ?, &, :, ', \", /, %, #.",
         "roomname": "Skriv inn romnavn",
         "roomnameHint": "Skriv inn navnet eller URL-en til rommet du vil bli med i. Du kan finne på et navn, bare sørg for at de du møter vet det slik at de skriver inn det samme navnet.",
         "sendFeedback": "Send tilbakemelding",

@@ -1355,7 +1355,7 @@
         "recentListDelete": "Suprimeix l'entrada",
         "recentListEmpty": "La llista de reunions recents ara mateix és buida. Feu xats amb el vostre equip i trobareu totes les reunions recents aquí.",
         "reducedUIText": "Us donem la benvinguda a {{app}}!",
-        "roomNameAllowedChars": "El nom de la reunió no hauria de contenir cap d'aquests caràcters: ?, &, :, ', \", % ni #.",
+        "roomNameAllowedChars": "El nom de la reunió no hauria de contenir cap d'aquests caràcters: ?, &, :, ', \", /, % ni #.",
         "roomname": "Introduïu el nom de la sala",
         "roomnameHint": "Introduïu el nom o l'URL de la sala on voleu entrar. Podeu crear un nom, només cal que les persones amb qui us reuniu el coneguin i introdueixin el mateix nom.",
         "sendFeedback": "Envia comentaris",

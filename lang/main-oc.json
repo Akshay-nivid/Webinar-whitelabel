@@ -1563,7 +1563,7 @@
         "recentListEmpty": "Vòstra lista de contactes recents es voida. Charratz amb vòstra còla e trobaretz totes vòstras reünions recentas aquí.",
         "recentMeetings": "Vòstras reünions recentas",
         "reducedUIText": "Benvengut a {{app}} !",
-        "roomNameAllowedChars": "Lo nom de la reünion deu pas conténer aqueles caractèrs : ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Lo nom de la reünion deu pas conténer aqueles caractèrs : ?, &, :, ', \", /, %, #.",
         "roomname": "Sasissètz un nom de sala",
         "roomnameHint": "Picatz lo nom o l’URL de la sala que volètz jónher. Podètz inventar un nom, cal pas que lo monde que volètz convidar lo sàpian.",
         "sendFeedback": "Mandar vòstra opinion",

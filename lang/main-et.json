@@ -765,7 +765,7 @@
         "recentListDelete": "Kustuta",
         "recentListEmpty": "Hiljutiste valikute nimekiri on tühi. Vestle kasutajatega ja leia oma hiljutised kõned siit.",
         "reducedUIText": "Tere tulemast rakendusse {{app}}!",
-        "roomNameAllowedChars": "Televastuvõtu nimi ei tohi sisaldada sümboleid: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Televastuvõtu nimi ei tohi sisaldada sümboleid: ?, &, :, ', \", /, %, #.",
         "roomname": "Sisesta ruumi nimi",
         "roomnameHint": "Sisesta ruumi nimi või link, millega soovid ühinega. Võid nime välja mõelda, aga anna osalejatele sellest teada, et nad saaksid ruumiga ühineda.",
         "sendFeedback": "Saada tagasiside",

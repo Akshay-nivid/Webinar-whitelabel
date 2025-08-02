@@ -1553,7 +1553,7 @@
         "recentListEmpty": "En son görüşülenler listeniz şu anda boş. Sohbet edin ve son toplantılarınızı burada görüntüleyin.",
         "recentMeetings": "Son toplantılarınız",
         "reducedUIText": "Hoşgeldiniz - {{app}}!",
-        "roomNameAllowedChars": "Toplantı adı şu karakterlerden hiçbirini içermemelidir: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Toplantı adı şu karakterlerden hiçbirini içermemelidir: ?, &, :, ', \" , /, %, #.",
         "roomname": "Oda adı girin",
         "roomnameHint": "Katılmak istediğiniz odanın adını veya bağlantısını girin. İstediğiniz oda adını uydurabilirsiniz. Aynı odada buluşmak için görüşmek istediğiniz kişilere bunu iletmeniz yeterli.",
         "sendFeedback": "Geri bildirim gönder",

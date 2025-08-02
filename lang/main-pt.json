@@ -1545,7 +1545,7 @@
         "recentListEmpty": "A sua lista recente está atualmente vazia. Converse com a sua equipa e encontrará aqui todas as suas reuniões recentes.",
         "recentMeetings": "As suas reuniões recentes",
         "reducedUIText": "Bem-vindo ao {{app}}!",
-        "roomNameAllowedChars": "Nome da reunião não deve conter qualquer um destes caracteres: ?. &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Nome da reunião não deve conter qualquer um destes caracteres: ?. &, :, ', \", /, %, #.",
         "roomname": "Digite o nome da sala",
         "roomnameHint": "Digite o nome ou URL da sala a que pretende entrar. Pode inventar um nome, basta informar as pessoas com quem se vai encontrar para que entrem com o mesmo nome.",
         "sendFeedback": "Enviar comentários",

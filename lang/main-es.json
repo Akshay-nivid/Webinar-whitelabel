@@ -1450,7 +1450,7 @@
         "recentListEmpty": "Tu historial de reuniones está vacío. Reúnete y aparecerán aquí.",
         "recentMeetings": "Tus reuniones recientes",
         "reducedUIText": "¡Bienvenido a {{app}}!",
-        "roomNameAllowedChars": "El nombre de la reunión no debe contener ninguno de estos caracteres: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "El nombre de la reunión no debe contener ninguno de estos caracteres: ?, &, :, ', \", /, %, #.",
         "roomname": "Introduce el nombre de la sala",
         "roomnameHint": "Introduce el nombre o URL de la sala a la que deseas unirte. Puedes inventar un nombre, simplemente infórmaselo a las personas con las que te reunirás para que introduzcan el mismo nombre.",
         "sendFeedback": "Enviar sugerencias",

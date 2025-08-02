@@ -1509,7 +1509,7 @@
         "recentListEmpty": "Via listo de lastaj kunvenoj estas malplena. Babilu kun via teamo kaj vi trovos ĉi tie ĉiujn viajn lastajn kunvenojn.",
         "recentMeetings": "Viaj lastatempaj kunvenoj",
         "reducedUIText": "Bonvenon all {{app}}!",
-        "roomNameAllowedChars": "La nomo de la kunveno ne povas enhavi la jenajn signojn: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "La nomo de la kunveno ne povas enhavi la jenajn signojn: ?, &, :, ', \", /, %, #.",
         "roomname": "Entajpu nomon de ĉambro",
         "roomnameHint": "Entajpu la nomon aŭ URL de la ĉambro, al kiu vi volas aliĝi. Vi povas elpensi nomon, nur sciigu ĝin al la aliaj homoj, kiujn vi renkontos, por ke ili entajpu la saman nomon.",
         "sendFeedback": "Sendi retrokuplon",

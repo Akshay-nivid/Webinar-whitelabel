@@ -1026,7 +1026,7 @@
         "recentListDelete": "Ezabatu",
         "recentListEmpty": "Azkenak zerrenda hutsik dago. Txateatu zure taldearekin eta azken bilera guztiak hemen aurkituko dituzu.",
         "reducedUIText": "Ongi etorri {{app}}era!",
-        "roomNameAllowedChars": "Bileraren izenak ez du honelako karaktererik eduki behar: ?, &,:, ', \",%, #.",
+        "roomNameAllowedChars": "Bileraren izenak ez du honelako karaktererik eduki behar: ?, &,:, ', \", /,%, #.",
         "roomname": "Sartu gelaren izena",
         "roomnameHint": "Sartu batu nahi duzun gelaren izena edo URLa. Izen bat sor dezakezu eta bilerara sartuko diren pertsonei esaiezu, izen bera sartu dezaten.",
         "sendFeedback": "Bidali iritzia",

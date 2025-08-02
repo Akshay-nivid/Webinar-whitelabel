@@ -1519,7 +1519,7 @@
         "recentListEmpty": "Danh sách cuộc họp trống. Thực hiện cuộc họp và bạn sẽ thấy danh sách hiện tại đây.",
         "recentMeetings": "Các cuộc họp gần đây của bạn",
         "reducedUIText": "Chào mừng đến với {{app}}!",
-        "roomNameAllowedChars": "Tên cuộc họp không được chứa bất kỳ ký tự nào sau đây: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Tên cuộc họp không được chứa bất kỳ ký tự nào sau đây: ?, &, :, ', \", /, %, #.",
         "roomname": "Nhập tên phòng",
         "roomnameHint": "Thêm tên hoặc URL của phòng họp bạn muốn tham gia. Ban có thể tạo tên phòng, gửi cho người bạn muốn mời để họ sử dụng tên đó.",
         "sendFeedback": "Gửi góp ý",

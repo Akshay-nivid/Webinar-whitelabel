@@ -1564,7 +1564,7 @@
         "recentListEmpty": "Inga tidigare möten. Chatta med ditt team och hitta alla tidigare möten där.",
         "recentMeetings": "Dina senaste möten",
         "reducedUIText": "Välkommen till {{app}}!",
-        "roomNameAllowedChars": "Mötesnamn kan inte innehålla dessa tecken: ?, &,:, ', \",%, #.",
+        "roomNameAllowedChars": "Mötesnamn kan inte innehålla dessa tecken: ?, &,:, ', \", /, %, #.",
         "roomname": "Skriv in rumsnamn",
         "roomnameHint": "Ange namnet eller URL:en till mötesrummet du vill ansluta till. Du kan hitta på ett nytt namn, berätta då för de andra du tänker möta så de anger samma namn.",
         "sendFeedback": "Ge återkoppling",

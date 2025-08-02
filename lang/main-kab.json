@@ -1155,7 +1155,7 @@
         "recentListDelete": "Kkes",
         "recentListEmpty": "Tabdart-ik·im tamirant d tilemt akka tura. Mmeslay d terbaɛt-ik·im rnu ad tafeḍ akk timliliyin timiranin da.",
         "reducedUIText": "Ansuf ɣer {{app}}!",
-        "roomNameAllowedChars": "Isem n temlilit ur ilaq ara ad ilin deg-s isekkilen-a: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Isem n temlilit ur ilaq ara ad ilin deg-s isekkilen-a: ?, &, :, ', \", /, %, #.",
         "roomname": "Sekcem-d isem n tzeqqa",
         "roomnameHint": "Sekcem isem neɣ URL n texxamt wuɣur tebɣiḍ ad tedduḍ. Tzemreḍ ad tgeḍ isem, eǧǧ kan imdanen ara temlileḍ ad t-isinen iwakken ad skecmen yiwen n yisem.",
         "sendFeedback": "Azen takti-inek·inem",

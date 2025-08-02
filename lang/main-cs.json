@@ -1563,7 +1563,7 @@
         "recentListEmpty": "Váš seznam nedávných hovorů je prázdný. Spojte se s kolegy z Vašeho týmu, poté zde naleznete seznam nedávných hovorů.",
         "recentMeetings": "Vaše nedávné setkání",
         "reducedUIText": "Vítejte v {{app}}!",
-        "roomNameAllowedChars": "Název setkání nesmí obsahovat žádný z těchto znaků: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Název setkání nesmí obsahovat žádný z těchto znaků: ?, &, :, ', \", /, %, #.",
         "roomname": "Zadejte název místnosti",
         "roomnameHint": "Zadejte název nebo adresu místnosti, ke které se chcete připojit. Pokud jste místnost vytvořili, ujistěte se, že ostatní účastníci schůzky zadají stejný název jako vy.",
         "sendFeedback": "Poslat zpětnou vazbu",

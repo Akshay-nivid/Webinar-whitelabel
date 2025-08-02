@@ -1530,7 +1530,7 @@
         "recentListEmpty": "Daftar terbaru Anda saat ini kosong. Berbicaralah dengan tim Anda dan Anda akan menemukan semua pertemuan terbaru Anda di sini.",
         "recentMeetings": "Pertemuan terbaru Anda",
         "reducedUIText": "Selamat datang di {{app}}!",
-        "roomNameAllowedChars": "Nama pertemuan tidak boleh mengandung salah satu dari karakter-karakter ini: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Nama pertemuan tidak boleh mengandung salah satu dari karakter-karakter ini: ?, &, :, ', \", /, %, #.",
         "roomname": "Masukkan nama ruang",
         "roomnameHint": "Masukkan nama atau URL ruang yang ingin Anda ikuti. Anda dapat membuat nama, beri tahu orang-orang yang akan Anda temui sehingga mereka memasukkan nama yang sama.",
         "sendFeedback": "Kirim umpan balik",

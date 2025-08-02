@@ -1087,7 +1087,7 @@
         "recentListDelete": "Lista törlés",
         "recentListEmpty": "A legutóbbi lista jelenleg üres. Csevegjen a csapattal és minden előző értekezlet itt lesz megtalálható.",
         "reducedUIText": "Üdvözlet a {{app}} programban!",
-        "roomNameAllowedChars": "Az értekezlet neve nem tartalmazhatja a következő karaktereket: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Az értekezlet neve nem tartalmazhatja a következő karaktereket: ?, &, :, ', \", /, %, #.",
         "roomname": "Adja meg a szoba nevét",
         "roomnameHint": "Adja meg a kívánt nevet vagy URL-t, amelyhez csatlakozni szeretne. Bármiképp elnevezheti, csak ossza meg az értekezlet résztvevőivel, hogy ők ugyanezt a nevet tudják majd megadni.",
         "sendFeedback": "Visszajelzés küldése",

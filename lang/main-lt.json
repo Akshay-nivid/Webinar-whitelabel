@@ -766,7 +766,7 @@
         "recentListDelete": "Ištrinti",
         "recentListEmpty": "Jūsų paskutinis sąrašas yra tuščias. Susisiekite su savo komanda ir jūs rasite savo paskutinius susitikimus čia.",
         "reducedUIText": "Sveiki atvyke į {{app}}!",
-        "roomNameAllowedChars": "Susitikimo pavadinime negali būti šių ženklų: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Susitikimo pavadinime negali būti šių ženklų: ?, &, :, ', \", /, %, #.",
         "roomname": "Įveskite pokalbių kambario pavadinimą",
         "roomnameHint": "Įveskite sugalvotą pavadinimą arba pokalbio kambario adresą (URL), kad prisijungtumėte. Jūs galite sugalvoti savo pavadinimą, bet įsitikinkite, kad ir kiti dalyviai, su kuriais bendrausite, taip pat žinos tikslų pavadinimą tam, kad įeitų į tą patį pokalbių kambarį.",
         "sendFeedback": "Palikite atsiliepimą",

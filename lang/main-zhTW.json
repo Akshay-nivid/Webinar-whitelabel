@@ -1612,7 +1612,7 @@
         "recentListEmpty": "您的近期列表目前是空白的，與您的團隊成員聊天，即可在此處找到最近參與過的會議。",
         "recentMeetings": "您近期的會議",
         "reducedUIText": "歡迎使用{{app}}！",
-        "roomNameAllowedChars": "會議室名稱不應包含以下字元：?、&、:、'、\"、%、#。",
+        "roomNameAllowedChars": "會議室名稱不應包含以下字元：?、&、:、'、\"、/、%、#。",
         "roomname": "輸入會議室名稱",
         "roomnameHint": "請輸入您想加入的會議室名稱或網址，您可以用一個名稱來建立會議室，只要其他人輸入相同的名稱就能加入會議室。",
         "sendFeedback": "傳送回饋",

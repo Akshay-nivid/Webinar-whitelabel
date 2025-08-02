@@ -1156,7 +1156,7 @@
         "recentListDelete": "Izbriši",
         "recentListEmpty": "Seznam vaših preteklih srečanj je trenutno prazen. Pričnite novo srečanje, in tukaj se bo prikazala zgodovina vseh vaših srečanj.",
         "reducedUIText": "Pozdravljeni v {{app}}!",
-        "roomNameAllowedChars": "Ime srečanje ne sme vsebovati naslednjih znakov: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Ime srečanje ne sme vsebovati naslednjih znakov: ?, &, :, ', \", /, %, #.",
         "roomname": "Vnesite ime sobe",
         "roomnameHint": "Vnesite ime ali URL naslov sobe, v kateri bo potekalo srečanje. Ime sobe si lahko izmislite, morate pa ga posredovati vsem tistim, s katerimi se v tej sobi želite udeležiti videokonference.",
         "sendFeedback": "Pošlji povratno informacijo",

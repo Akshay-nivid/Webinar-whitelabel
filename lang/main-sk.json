@@ -907,7 +907,7 @@
         "recentListDelete": "Vymazať",
         "recentListEmpty": "Váš zoznam posledných hovorov je prázdny. Spojte sa s kolegami z Vášho tímu a potom tu nájdete všetky vaše stretnutia.",
         "reducedUIText": "Vitajte v {{app}}!",
-        "roomNameAllowedChars": "Názov miestnosti by nemal obsahovať žiaden z týchto znakov: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Názov miestnosti by nemal obsahovať žiaden z týchto znakov: ?, &, :, ', \" , /, %, #.",
         "roomname": "Zadajte názov miestnosti",
         "roomnameHint": "Zadajte názov alebo URL odkaz miestnosti ku ktorej sa chcete pripojiť. Názov si môžete vymyslieť - dajte ho vedieť ostatným účastníkom konferencie, ktorí ho sem zadajú.",
         "sendFeedback": "Odoslať spätnú väzbu",

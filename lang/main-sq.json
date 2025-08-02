@@ -1562,7 +1562,7 @@
         "recentListEmpty": "Lista juaj për “së fundi” aktualisht është e zbrazët. Bisedoni me ekipin tuaj dhe do të gjeni këtu krejt takimet tuaj së fundi.",
         "recentMeetings": "Takimet tuaja së fundi",
         "reducedUIText": "Mirë se vini në {{app}}!",
-        "roomNameAllowedChars": "Emri i takimit s’duhet të përmbajë ndonjë nga këto shenja: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Emri i takimit s’duhet të përmbajë ndonjë nga këto shenja: ?, &, :, ', \", /, %, #.",
         "roomname": "Jepni emër dhome",
         "roomnameHint": "Jepni emrin ose URL-në e dhomës ku doni të hyhet. Emrin mund ta vini si të doni, thjesht tregojuani personave me të cilët po takoheni, që të japin të njëjtin emër.",
         "sendFeedback": "Dërgoni përshtypje",

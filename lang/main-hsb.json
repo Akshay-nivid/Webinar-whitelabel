@@ -1306,7 +1306,7 @@
         "recentListDelete": "zapisk wotstronić",
         "recentListEmpty": "Waš přehlad konferencow je hišće prózdny. Rěčće z Wašim teamom a Waše zašłe konferency namakaće tule.",
         "reducedUIText": " {{app}} Was wita!",
-        "roomNameAllowedChars": "Mjeno konferency njesmě žane ze slědowacych znamješkow wobsahować: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Mjeno konferency njesmě žane ze slědowacych znamješkow wobsahować: ?, &, :, ', \", /, %, #.",
         "roomname": "mjeno konferency zapodać",
         "roomnameHint": "Mjeno abo URL konferency, kotrejž chceće přistupić. Móžeće sebi mjeno wumyslić, wone dyrbi so jenož druhim wobdźělnikam posrědkować, zo móhli samsnej konferency přistupić.",
         "sendFeedback": "feedback pósłać",

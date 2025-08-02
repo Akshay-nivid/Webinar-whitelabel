@@ -1359,7 +1359,7 @@
         "recentListEmpty": "Pśeglěd Wašych konferencow jo tuchylu prozny. Gaž buźośo se z Wašym teamom rozgranjaś, ga wšykne Waše konference budu se how zjawiś.",
         "recentMeetings": "",
         "reducedUIText": "Witajśo do {{app}}!",
-        "roomNameAllowedChars": "Mě konference njedej žednje wopśimjeś žednogo wót slědujucych znamješkow: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Mě konference njedej žednje wopśimjeś žednogo wót slědujucych znamješkow: ?, &, :, ', \", /, %, #.",
         "roomname": "mě konference zapódaś",
         "roomnameHint": "Mě a adresa URL konference, kótarejž cośo pśistupiś. Wy móžośo sebje jadno mě wumysliś, Wy musyśo jo jano drugim wobźělnikam zjawiś, aby k tej samej konferency pśistupili.",
         "sendFeedback": "měnjenje pósłaś",

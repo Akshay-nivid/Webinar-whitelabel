@@ -983,7 +983,7 @@
         "recentListDelete": "పద్దును తొలగించు",
         "recentListEmpty": "Your recent list is currently empty. Chat with your team and you will find all your recent meetings here.",
         "reducedUIText": "{{app}}‌కి స్వాగతం!",
-        "roomNameAllowedChars": "Meeting name should not contain any of these characters: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Meeting name should not contain any of these characters: ?, &, :, ', \" , /, %, #.",
         "roomname": "గది పేరు ఇవ్వండి",
         "roomnameHint": "Enter the name or URL of the room you want to join. You may make a name up, just let the people you are meeting know it so that they enter the same name.",
         "sendFeedback": "ప్రతిస్పందన పంపించు",

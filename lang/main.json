@@ -1636,7 +1636,7 @@
         "recentListEmpty": "Your recent list is currently empty. Chat with your team and you will find all your recent meetings here.",
         "recentMeetings": "Your recent meetings",
         "reducedUIText": "Welcome to {{app}}!",
-        "roomNameAllowedChars": "Meeting name should not contain any of these characters: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Meeting name should not contain any of these characters: ?, &, :, ', \", /, %, #.",
         "eventInPast":"The event is in the past.",
         "eventInFuture":"The event is in the future.",
         "noData":"No conference where conducting on this ID",

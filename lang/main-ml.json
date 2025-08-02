@@ -925,7 +925,7 @@
         "recentListDelete": "ഇല്ലാതാക്കുക",
         "recentListEmpty": "Your recent list is currently empty. Chat with your team and you will find all your recent meetings here.",
         "reducedUIText": "Welcome to {{app}}!",
-        "roomNameAllowedChars": "മീറ്റിംഗ് നാമത്തിൽ ഈ പ്രതീകങ്ങളൊന്നും അടങ്ങിയിരിക്കരുത്: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "മീറ്റിംഗ് നാമത്തിൽ ഈ പ്രതീകങ്ങളൊന്നും അടങ്ങിയിരിക്കരുത്: ?, &, :, ', \", /, %, #.",
         "roomname": "റൂമിന്റെ പേര് നൽകുക",
         "roomnameHint": "Enter the name or URL of the room you want to join. You may make a name up, just let the people you are meeting know it so that they enter the same name.",
         "sendFeedback": "ഫീഡ്‌ബാക്ക് അയയ്‌ക്കുക",

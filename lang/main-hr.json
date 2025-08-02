@@ -1352,7 +1352,7 @@
         "recentListDelete": "Izbriši unos",
         "recentListEmpty": "Tvoj popis nedavnih je tranutačno prazan. Razgovaraj s tvojim timom i pronaći ćeš sve svoje nedavne sastanke.",
         "reducedUIText": "Pozdrav u {{app}}!",
-        "roomNameAllowedChars": "Ime sastanka ne smije sadržati sljedeće znakove: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Ime sastanka ne smije sadržati sljedeće znakove: ?, &, :, ', \", /, %, #.",
         "roomname": "Upiši ime sobe",
         "roomnameHint": "Upiši ime ili URL sobe kojoj se želiš pridružiti. Možeš izmisliti ime, ali obavijesti ljude s kojima se sastaješ da upišu isto ime.",
         "sendFeedback": "Pošalji povratnu informaciju",

@@ -1595,7 +1595,7 @@
         "recentListEmpty": "Šobrīd jūsu nesen apmeklēto sapulču saraksts ir tukšs. Taču tā kā izmantojat šo pakalpojumu, tas ar laiku papildināsies.",
         "recentMeetings": "Jūsu nesenās sapulces",
         "reducedUIText": "Laipni lūgti {{app}}!",
-        "roomNameAllowedChars": "Sapulču nosaukumā nedrīkst ietvert šādas rakstuzīmes: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Sapulču nosaukumā nedrīkst ietvert šādas rakstuzīmes: ?, &, :, ', \", /, %, #.",
         "roomname": "Norādiet sapulces telpas nosaukumu",
         "roomnameHint": "Norādiet sapulces telpas nosaukumu vai adresi. Jūs varat izveidot sapulces telpu ar Jūsu izvēlētu nosaukumu un nodot to potenciālajiem sapulces dalībniekiem, lai viņi izmantotu tieši šo.",
         "sendFeedback": "Atsauksmes",

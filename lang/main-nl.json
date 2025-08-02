@@ -1100,7 +1100,7 @@
         "recentListDelete": "Verwijderen",
         "recentListEmpty": "Uw recent lijst is momenteel leeg. Wanneer u chat met uw team, vindt u hier al uw recente vergaderingen.",
         "reducedUIText": "Welkom in {{app}}!",
-        "roomNameAllowedChars": "Naam van vergadering mag geen van deze tekens bevatten: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Naam van vergadering mag geen van deze tekens bevatten: ?, &, :, ', \", /, %, #.",
         "roomname": "Voer naam van ruimte in",
         "roomnameHint": "Voer de naam of URL in van de ruimte die u wilt betreden. U kunt een naam verzinnen, maar laat deze wel weten aan de andere deelnemers, zodat zij dezelfde naam invoeren.",
         "sendFeedback": "Feedback versturen",

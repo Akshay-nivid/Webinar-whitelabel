@@ -2,23 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import moment from 'moment';
-
-import { isMobileBrowser } from '../../base/environment/utils';
 import { translate, translateToHTML } from '../../base/i18n/functions';
 import Icon from '../../base/icons/components/Icon';
 import { IconWarning } from '../../base/icons/svg';
 import Watermarks from '../../base/react/components/web/Watermarks';
 import getUnsafeRoomText from '../../base/util/getUnsafeRoomText.web';
-import CalendarList from '../../calendar-sync/components/CalendarList.web';
-import RecentList from '../../recent-list/components/RecentList.web';
 import SettingsButton from '../../settings/components/web/SettingsButton';
 import { SETTINGS_TABS } from '../../settings/constants';
 import { toast } from 'react-toastify';
-
 import { AbstractWelcomePage, IProps, _mapStateToProps } from './AbstractWelcomePage';
-import Tabs from './Tabs';
 
-export const ROOM_NAME_VALIDATE_PATTERN_STR = "^conf-\d{4}-[a-z0-9]{4}$"
 
 class WelcomePage extends AbstractWelcomePage<IProps> {
 
@@ -31,10 +24,6 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
     _additionalContentTemplate: HTMLTemplateElement | null = document.getElementById('welcome-page-additional-content-template') as HTMLTemplateElement;
     _additionalToolbarContentTemplate: HTMLTemplateElement | null = document.getElementById('settings-toolbar-additional-content-template') as HTMLTemplateElement;
 
-    _titleHasNotAllowCharacter = false;
-    _isEmpty = false;
-    _meetingError = false;
-    _errorMessage = 'roomNameAllowedChars';
     _API = 'http://localhost:4444';
 
     static defaultProps = {
@@ -129,27 +118,24 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
 
         return (
             <div id="enter_room" style={{ borderRadius: '30px' }}>
-                <div className="join-meeting-container" style={{ borderRadius: '30px' }}>
+                <div className="join-meeting-container">
                     <div className="enter-room-input-container">
                         <form>
                             <input
                                 className="enter-room-input"
                                 placeholder="enter conference ID in format 'CONF-XXXX-XXXX'"
-                                pattern={ROOM_NAME_VALIDATE_PATTERN_STR}
                                 type="text"
                                 value={this.state.room}
                                 onChange={(e) => this._onRoomChange(e.target?.value)}
                                 ref={this._setRoomInputRef}
                                 autoFocus
                                 aria-label="Meeting name input"
-                                style={{ borderRadius: '30px', border: '1px solid white' }}
                             />
                         </form>
                     </div>
                     <button
                         className="welcome-page-button"
                         onClick={(e) => this._onFormSubmit(this.state.room, e)}
-                        style={{ borderRadius: '30px' }}
                         type="button"
                     >
                         {t('welcomepage.startMeeting')}
@@ -188,53 +174,33 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
         }
     }
 
-    _clearErrorState() {
-        this._meetingError = false;
-        this._isEmpty = false;
-        this._errorMessage = 'roomNameAllowedChars';
-        this.forceUpdate();
-    }
-
-    _setErrorState(message: string) {
-        this._meetingError = true;
-        this._isEmpty = message === 'conferenceIDIsEmpty';
-        this._errorMessage = message;
-
-        toast.error(this.props.t(`welcomepage.${message}`));
-
-        setTimeout(() => {
-            this._clearErrorState();
-        }, 3000);
-
-        this.forceUpdate();
-    }
-
     _onFormSubmit(room: string, event?: React.FormEvent) {
         event?.preventDefault();
         const trimmedRoom = room.trim();
 
         if (!trimmedRoom) {
-            this._setErrorState('conferenceIDIsEmpty');
-            return;
+            return toast.error(this.props.t(`welcomepage.conferenceIDIsEmpty`));
         }
+        const forbiddenChars = ['?', '&', ':', '\'', '/', '"', '%', '#', '.'];
 
+        if (forbiddenChars.some(char => trimmedRoom.includes(char))) {
+            return toast.error(this.props.t(`welcomepage.roomNameAllowedChars`))
+        }
         axios.get(`${this._API}/api/event/details/${trimmedRoom}`)
             .then(({ data }) => {
                 const eventData = data;
-                if (!eventData) return this._setErrorState('noData');
+                if (!eventData) return toast.error(this.props.t(`welcomepage.noData`));
 
                 const now = moment();
                 const { eventStartTime, eventEndTime } = eventData;
 
                 if (moment(eventEndTime).isBefore(now)) {
-                    return this._setErrorState('eventInPast');
+                    return toast.error(this.props.t(`welcomepage.eventInPast`))
                 }
 
                 if (moment(eventStartTime).isAfter(now)) {
-                    return this._setErrorState('eventInFuture');
+                    return toast.error(this.props.t(`welcomepage.eventInFuture`))
                 }
-
-                this._clearErrorState();
 
                 if (!this._roomInputRef || this._roomInputRef.reportValidity()) {
                     this._onJoin();
@@ -242,16 +208,15 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
             })
             .catch(err => {
                 console.error('API error:', err);
-                this._setErrorState('apiError');
+                toast.error(`Some thing went wrong.`)
             });
     }
 
     _onRoomChange(value: string) {
         const forbiddenChars = ['?', '&', ':', '\'', '"', '%', '#', '.'];
-
-        this._titleHasNotAllowCharacter = forbiddenChars.some(char =>
-            value.includes(char)
-        );
+        if (forbiddenChars.some(char =>value.includes(char))){
+            return toast.error(this.props.t(`welcomepage.roomNameAllowedChars`))
+        }
         super._onRoomChange(value);
     }
 

@@ -745,7 +745,7 @@
         "recentListDelete": "Eliminar",
         "recentListEmpty": "Neste intre, a súa lista de recentes está baleira. Converse co seu equipo e atopará todas as reunións recentes aquí.",
         "reducedUIText": "Dámoslle a benvida a {{app}}!",
-        "roomNameAllowedChars": "O nome da reunión non debería conter ningún destes caracteres: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "O nome da reunión non debería conter ningún destes caracteres: ?, &, :, ', \", /, %, #.",
         "roomname": "Escriba o nome da sala",
         "roomnameHint": "Escribir o nome ou o URL da sala á que se quere unir. Pode dar de alta un nome e permitir que a xente coa que se reúne o saiba para que introduzan o mesmo nome.",
         "sendFeedback": "Enviar un comentario",
