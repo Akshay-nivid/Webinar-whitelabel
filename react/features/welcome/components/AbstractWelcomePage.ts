@@ -68,8 +68,10 @@ interface IState {
     insecureRoomName: boolean;
     isSettingsScreenFocused?: boolean;
     joining: boolean;
+    _open: boolean;
     room: string;
     roomNameInputAnimation?: any;
+    openModal?:any;
     roomPlaceholder: string;
     updateTimeoutId?: number;
 }
@@ -100,8 +102,10 @@ export class AbstractWelcomePage<P extends IProps> extends Component<P, IState> 
         generatedRoomName: '',
         generateRoomNames: undefined,
         insecureRoomName: false,
+        _open:false,
         joining: false,
         room: '',
+        openModal:undefined,
         roomPlaceholder: '',
         updateTimeoutId: undefined,
         _fieldFocused: false,
@@ -218,7 +222,8 @@ export class AbstractWelcomePage<P extends IProps> extends Component<P, IState> 
 
             // By the time the Promise of appNavigate settles, this component
             // may have already been unmounted.
-            const onAppNavigateSettled
+            const
+            onAppNavigateSettled
                 = () => this._mounted && this.setState({ joining: false });
 
             this.props.dispatch(appNavigate(room))
