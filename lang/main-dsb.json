@@ -446,7 +446,7 @@
         "answer": "wótegroniś",
         "audioCallTitle": "pśiźecy telefonat",
         "decline": "OK",
-        "productLabel": "wót Jitsi Meet",
+        "productLabel": "wót Confgo",
         "videoCallTitle": "pśiźecy wideo-tefonat"
     },
     "info": {
@@ -1345,7 +1345,7 @@
             "calendar": "logo kalendarja",
             "desktopPreviewThumbnail": "naglěd desktopa ako miniatura",
             "googleLogo": "logo Google",
-            "logoDeepLinking": "logo Jitsi Meet",
+            "logoDeepLinking": "logo Confgo",
             "microsoftLogo": "logo Microsoft",
             "policyLogo": "logo za směrnice"
         },

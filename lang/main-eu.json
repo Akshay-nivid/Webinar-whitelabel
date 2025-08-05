@@ -360,7 +360,7 @@
         "answer": "Erantzun",
         "audioCallTitle": "Sarrerako deia",
         "decline": "Baztertu",
-        "productLabel": "Jitsi Meet-etik",
+        "productLabel": "Confgo-etik",
         "videoCallTitle": "Bideo-deia sartzen"
     },
     "info": {
@@ -554,7 +554,7 @@
         "newDeviceAction": "Erabilera",
         "newDeviceAudioTitle": "Audio-gailu berria hauteman da",
         "newDeviceCameraTitle": "Kamera berria hauteman da",
-        "oldElectronClientDescription1": "Segurtasun arazoak dituen Jitsi Meet aplikazioa erabiltzen arai zara. Eguneratu ezazu",
+        "oldElectronClientDescription1": "Segurtasun arazoak dituen Confgo aplikazioa erabiltzen arai zara. Eguneratu ezazu",
         "oldElectronClientDescription2": "bertsio berriagora",
         "oldElectronClientDescription3": "ORAIN!",
         "passwordRemovedRemotely": "$t(lockRoomPasswordUppercase) beste erabiltzaile batek kendu du",

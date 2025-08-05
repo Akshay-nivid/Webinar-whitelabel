@@ -535,7 +535,7 @@
         "answer": "Odpovědět",
         "audioCallTitle": "Příchozí hovor",
         "decline": "OK",
-        "productLabel": "od Jitsi Meet",
+        "productLabel": "od Confgo",
         "videoCallTitle": "Příchozí videohovor"
     },
     "info": {
@@ -799,7 +799,7 @@
         "noiseSuppressionDesktopAudioDescription": "Extra potlačení šumu nelze povolit při sdílení zvuku na ploše. Vypněte jej a zkuste to znovu.",
         "noiseSuppressionFailedTitle": "Nepodařilo se spustit dodatečné potlačení hluku",
         "noiseSuppressionStereoDescription": "Extra potlačení šumu není aktuálně podporováno u stereo zvuku.",
-        "oldElectronClientDescription1": "Zdá se, že používáte zastaralou verzi klienta Jitsi Meet, který má známé bezpečnostní zranitelnosti. Aktualizujte prosím na ",
+        "oldElectronClientDescription1": "Zdá se, že používáte zastaralou verzi klienta Confgo, který má známé bezpečnostní zranitelnosti. Aktualizujte prosím na ",
         "oldElectronClientDescription2": "nejnovější sestavení",
         "oldElectronClientDescription3": " ihned!",
         "participantWantsToJoin": "Chce se připojit k setkání",

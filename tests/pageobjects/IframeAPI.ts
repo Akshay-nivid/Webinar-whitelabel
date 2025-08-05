@@ -84,7 +84,7 @@ export default class IframeAPI extends BasePageObject {
     }
 
     /**
-     * Removes the embedded Jitsi Meet conference.
+     * Removes the embedded Confgo conference.
      */
     dispose() {
         return this.participant.execute(() => window.jitsiAPI.dispose());
@@ -94,20 +94,20 @@ export default class IframeAPI extends BasePageObject {
      * Invite the given participant to the meeting via PSTN.
      */
     invitePhone(value: string) {
-        return this.participant.execute(v => window.jitsiAPI.invite([ {
+        return this.participant.execute(v => window.jitsiAPI.invite([{
             type: 'phone',
             number: v
-        } ]), value);
+        }]), value);
     }
 
     /**
      * Invite the given participant to the meeting via sip (sip jibri).
      */
     inviteSIP(value: string) {
-        return this.participant.execute(v => window.jitsiAPI.invite([ {
+        return this.participant.execute(v => window.jitsiAPI.invite([{
             type: 'sip',
             address: v
-        } ]), value);
+        }]), value);
     }
 
     /**

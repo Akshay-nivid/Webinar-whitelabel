@@ -4,8 +4,7 @@ import axios from 'axios';
 import moment from 'moment';
 import { jitsiLocalStorage } from '@jitsi/js-utils';
 import { translate, translateToHTML } from '../../base/i18n/functions';
-import MdVisibility from 'react-icons/md/MdVisibility';
-import MdVisibilityOff from 'react-icons/md/MdVisibilityOff';
+import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import Icon from '../../base/icons/components/Icon';
 import { IconWarning } from '../../base/icons/svg';
 import Watermarks from '../../base/react/components/web/Watermarks';
@@ -28,7 +27,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
     _additionalToolbarContentTemplate: HTMLTemplateElement | null = document.getElementById('settings-toolbar-additional-content-template') as HTMLTemplateElement;
 
     _API = 'http://localhost:4444';
-    _user: any = JSON.parse(jitsiLocalStorage.getItem('user') )|| {};
+    _user: any = JSON.parse(jitsiLocalStorage.getItem('user')) || {};
 
     static defaultProps = {
         _room: ''
@@ -93,8 +92,8 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                 if (!eventData) return toast.error(this.props.t(`welcomepage.noData`));
 
                 const now = moment();
-                const { eventStartTime, eventEndTime ,id } = eventData;
-                this.setState({...this.state, eventId: id});
+                const { eventStartTime, eventEndTime, id } = eventData;
+                this.setState({ ...this.state, eventId: id });
 
                 // if (moment(eventEndTime).isBefore(now)) {
                 //     return toast.error(this.props.t(`welcomepage.eventInPast`))
@@ -103,9 +102,9 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                 // if (moment(eventStartTime).isAfter(now)) {
                 //     return toast.error(this.props.t(`welcomepage.eventInFuture`))
                 // }
-                if(this._user&& this._user.id){
+                if (this._user && this._user.id) {
                     this._handleFecthMeetingDetail(this._user.id);
-                }else{
+                } else {
                     this._handleModal()
                 }
 
@@ -129,15 +128,15 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
     _login() {
         try {
             let { username, password } = this.state;
-            username= username?.trim();
-            password= password?.trim();
+            username = username?.trim();
+            password = password?.trim();
             const errors: any = {};
 
-            if (!username || username=== '') {
+            if (!username || username === '') {
                 errors.username = 'Username is required';
             }
 
-            if (!password|| password=== '') {
+            if (!password || password === '') {
                 errors.password = 'Password is required';
             }
             if (errors.username || errors.password) {
@@ -146,7 +145,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
             }
             axios.post(`${this._API}/api/auth/login`, { username, password })
                 .then(({ data }) => {
-                    if (data.status=='success') {
+                    if (data.status == 'success') {
                         this.state._errorMessage = { username: '', password: '' };
                         jitsiLocalStorage.setItem('user', JSON.stringify(data.data));
                         this._handleFecthMeetingDetail(data.data.id);
@@ -162,22 +161,22 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
             toast.error(`Something went wrong.`)
         }
     }
-        _handleFecthMeetingDetail(userId: string){
-            try{
-                axios.get(`${this._API}/api/event/meta?userId=${userId}&eventId=${this.state.eventId}`)
-                .then(({data})=>{
+    _handleFecthMeetingDetail(userId: string) {
+        try {
+            axios.get(`${this._API}/api/event/meta?userId=${userId}&eventId=${this.state.eventId}`)
+                .then(({ data }) => {
                     super._handleFecthMeetingDetail(data?.meetingUniqueId || '');
                     if (!this._roomInputRef || this._roomInputRef.reportValidity()) {
                         this._onJoin();
                     }
                 })
-                    .catch((err) => { toast.error(`Something went wrong,please contact administrator.`) });
+                .catch((err) => { toast.error(`Something went wrong,please contact administrator.`) });
 
-            }catch (e) {
-                console.error('Fetch meeting detail error:', e);
-                toast.error(`meeting detail not found.`)
-            }
+        } catch (e) {
+            console.error('Fetch meeting detail error:', e);
+            toast.error(`meeting detail not found.`)
         }
+    }
 
 
     override render() {
@@ -236,7 +235,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                                     placeholder="enter conference code"
                                     type="text"
                                     value={this.state.conferenceCode}
-                                    onChange={(e) => this._handleChangeValue('conferenceCode',e.target?.value)}
+                                    onChange={(e) => this._handleChangeValue('conferenceCode', e.target?.value)}
                                     ref={this._setRoomInputRef}
                                     autoFocus
                                     aria-label="Meeting name input"
@@ -264,7 +263,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
                         width: 400,
-                        height: 240,
+                        height: 205,
                         bgcolor: 'background.paper',
                         border: '2px solid #000',
                         boxShadow: 24,
@@ -280,7 +279,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                             autoComplete="off"
                             sx={{
                                 m: 1,
-                                height: 210,
+                                height: 167,
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'space-around',
@@ -318,7 +317,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                                                 onMouseDown={(e) => e.preventDefault()}
                                                 onMouseUp={(e) => e.preventDefault()}
                                             >
-                                                {this.state._show ? <MdVisibilityOff /> : <MdVisibility />}
+                                                {this.state._show ?<MdVisibility />: <MdVisibilityOff /> }
                                             </IconButton>
                                         </InputAdornment>
                                     )
@@ -327,7 +326,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
 
 
                             <Button
-                                variant="contained" onClick={this._login} sx={{height:43}} fullWidth>Enter Meeting</Button>
+                                variant="contained" onClick={this._login} sx={{ height: 43 }} fullWidth>Enter Meeting</Button>
                         </Box>
 
                     </Box>

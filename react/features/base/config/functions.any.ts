@@ -256,13 +256,13 @@ export function isDisplayNameVisible(state: IReduxState): boolean {
 }
 
 /**
- * Restores a Jitsi Meet config.js from {@code localStorage} if it was
+ * Restores a Confgo config.js from {@code localStorage} if it was
  * previously downloaded from a specific {@code baseURL} and stored with
  * {@link storeConfig}.
  *
  * @param {string} baseURL - The base URL from which the config.js was
  * previously downloaded and stored with {@code storeConfig}.
- * @returns {?Object} The Jitsi Meet config.js which was previously downloaded
+ * @returns {?Object} The Confgo config.js which was previously downloaded
  * from {@code baseURL} and stored with {@code storeConfig} if it was restored;
  * otherwise, {@code undefined}.
  */
@@ -298,7 +298,7 @@ export function restoreConfig(baseURL: string) {
  * @returns {void}
  */
 export function setConfigFromURLParams(
-        config: IConfig, interfaceConfig: any, location: string | URL) {
+    config: IConfig, interfaceConfig: any, location: string | URL) {
     const params = parseURLParams(location);
     const json: any = {};
 
@@ -306,7 +306,7 @@ export function setConfigFromURLParams(
     // params = {
     //     "config.disableAudioLevels": false,
     //     "config.channelLastN": -1,
-    //     "interfaceConfig.APP_NAME": "Jitsi Meet"
+    //     "interfaceConfig.APP_NAME": "Confgo"
     // }
     // We want to have:
     // json = {
@@ -315,7 +315,7 @@ export function setConfigFromURLParams(
     //         "channelLastN": -1
     //     },
     //     interfaceConfig: {
-    //         "APP_NAME": "Jitsi Meet"
+    //         "APP_NAME": "Confgo"
     //     }
     // }
     config && (json.config = {});
@@ -349,8 +349,8 @@ export function setConfigFromURLParams(
     const deploymentUrlsConfig = params['config.deploymentUrls'] ?? {};
 
     if ('config.deploymentUrls.downloadAppsUrl' in params || 'config.deploymentUrls.userDocumentationURL' in params
-            || (typeof deploymentUrlsConfig === 'object'
-                && ('downloadAppsUrl' in deploymentUrlsConfig || 'userDocumentationURL' in deploymentUrlsConfig))) {
+        || (typeof deploymentUrlsConfig === 'object'
+            && ('downloadAppsUrl' in deploymentUrlsConfig || 'userDocumentationURL' in deploymentUrlsConfig))) {
         logger.warn('Using deploymentUrls config URL overwrite is deprecated.'
             + ' Please use downloadAppsUrl and/or userDocumentationURL from advanced branding!');
     }
@@ -358,16 +358,16 @@ export function setConfigFromURLParams(
     const liveStreamingConfig = params['config.liveStreaming'] ?? {};
 
     if (('interfaceConfig.LIVE_STREAMING_HELP_LINK' in params)
-            || ('config.liveStreaming.termsLink' in params)
-            || ('config.liveStreaming.dataPrivacyLink' in params)
-            || ('config.liveStreaming.helpLink' in params)
-            || (typeof params['config.liveStreaming'] === 'object' && 'config.liveStreaming' in params
-                && (
-                    'termsLink' in liveStreamingConfig
-                    || 'dataPrivacyLink' in liveStreamingConfig
-                    || 'helpLink' in liveStreamingConfig
-                )
-            )) {
+        || ('config.liveStreaming.termsLink' in params)
+        || ('config.liveStreaming.dataPrivacyLink' in params)
+        || ('config.liveStreaming.helpLink' in params)
+        || (typeof params['config.liveStreaming'] === 'object' && 'config.liveStreaming' in params
+            && (
+                'termsLink' in liveStreamingConfig
+                || 'dataPrivacyLink' in liveStreamingConfig
+                || 'helpLink' in liveStreamingConfig
+            )
+        )) {
         logger.warn('Using liveStreaming config URL overwrite and/or LIVE_STREAMING_HELP_LINK interfaceConfig URL'
             + ' overwrite is deprecated. Please use liveStreaming from advanced branding!');
     }

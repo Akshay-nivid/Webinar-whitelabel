@@ -169,6 +169,7 @@ MiddlewareRegistry.register(store => next => action => {
 
         const { id, role } = action.participant;
         const localParticipant = getLocalParticipant(state);
+        console.log('Participant updated', id, role);
 
         if (localParticipant?.id !== id) {
             return next(action);

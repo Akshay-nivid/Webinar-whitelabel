@@ -552,7 +552,7 @@
         "answer": "Antworten",
         "audioCallTitle": "Eingehender Anruf",
         "decline": "OK",
-        "productLabel": "von Jitsi Meet",
+        "productLabel": "von Confgo",
         "videoCallTitle": "Eingehender Videoanruf"
     },
     "info": {
@@ -1580,7 +1580,7 @@
             "calendar": "Kalender Logo",
             "desktopPreviewThumbnail": "Desktop-Vorschau Thumbnail",
             "googleLogo": "Google Logo",
-            "logoDeepLinking": "Jitsi Meet Logo",
+            "logoDeepLinking": "Confgo Logo",
             "microsoftLogo": "Microsoft Logo",
             "policyLogo": "Richtlinienlogo"
         },

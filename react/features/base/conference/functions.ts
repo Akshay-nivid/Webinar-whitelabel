@@ -44,8 +44,8 @@ export const getConferenceState = (state: IReduxState) => state['features/base/c
  * @returns {Promise}
  */
 export function _addLocalTracksToConference(
-        conference: IJitsiConference,
-        localTracks: Array<Object>) {
+    conference: IJitsiConference,
+    localTracks: Array<Object>) {
     const conferenceLocalTracks = conference.getLocalTracks();
     const promises = [];
 
@@ -77,9 +77,9 @@ export function _addLocalTracksToConference(
  * @returns {void}
  */
 export function commonUserJoinedHandling(
-        { dispatch }: { dispatch: IStore['dispatch']; },
-        conference: IJitsiConference,
-        user: any) {
+    { dispatch }: { dispatch: IStore['dispatch']; },
+    conference: IJitsiConference,
+    user: any) {
     const id = user.getId();
     const displayName = user.getDisplayName();
 
@@ -115,9 +115,9 @@ export function commonUserJoinedHandling(
  * @returns {void}
  */
 export function commonUserLeftHandling(
-        { dispatch }: { dispatch: IStore['dispatch']; },
-        conference: IJitsiConference,
-        user: any) {
+    { dispatch }: { dispatch: IStore['dispatch']; },
+    conference: IJitsiConference,
+    user: any) {
     const id = user.getId();
 
     if (!user.isHidden()) {
@@ -141,8 +141,8 @@ export function commonUserLeftHandling(
  * features/base/conference.
  */
 export function forEachConference(
-        stateful: IStateful,
-        predicate: (a: any, b: URL) => boolean) {
+    stateful: IStateful,
+    predicate: (a: any, b: URL) => boolean) {
     const state = getConferenceState(toState(stateful));
 
     for (const v of Object.values(state)) {
@@ -151,12 +151,12 @@ export function forEachConference(
         if (v && typeof v === 'object') {
             const url: URL = v[JITSI_CONFERENCE_URL_KEY];
 
-            // XXX The Web version of Jitsi Meet does not utilize
+            // XXX The Web version of Confgo does not utilize
             // JITSI_CONFERENCE_URL_KEY at the time of this writing. An
             // alternative is necessary then to recognize JitsiConference
             // instances and myUserId is as good as any other property.
             if ((url || typeof v.myUserId === 'function')
-                    && !predicate(v, url)) {
+                && !predicate(v, url)) {
                 return false;
             }
         }
@@ -490,8 +490,8 @@ export function isRoomValid(room?: string) {
  * @returns {Promise}
  */
 export function _removeLocalTracksFromConference(
-        conference: IJitsiConference,
-        localTracks: Array<Object>) {
+    conference: IJitsiConference,
+    localTracks: Array<Object>) {
     return Promise.all(localTracks.map(track =>
         conference.removeTrack(track)
             .catch((err: Error) => {
@@ -536,8 +536,8 @@ function _reportError(msg: string, err: Error) {
  * @returns {void}
  */
 export function sendLocalParticipant(
-        stateful: IStateful,
-        conference?: IJitsiConference) {
+    stateful: IStateful,
+    conference?: IJitsiConference) {
     const {
         avatarURL,
         email,

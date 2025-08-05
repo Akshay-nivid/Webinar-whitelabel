@@ -14,16 +14,18 @@ const ALLDAY_EVENT_LENGTH = 23 * 60 * 60 * 1000;
  * @param {Object} entry - The calendar entry.
  * @returns {boolean}
  */
-function _isDisplayableCalendarEntry(entry: { allDay: boolean; attendees: Object[];
-    endDate: number; startDate: number; }) {
+function _isDisplayableCalendarEntry(entry: {
+    allDay: boolean; attendees: Object[];
+    endDate: number; startDate: number;
+}) {
     // Entries are displayable if:
     //   - Ends in the future (future or ongoing events)
     //   - Is not an all day event and there is only one attendee (these events
     //     are usually placeholder events that don't need to be shown.)
     return entry.endDate > Date.now()
         && !((entry.allDay
-                || entry.endDate - entry.startDate > ALLDAY_EVENT_LENGTH)
-                    && (!entry.attendees || entry.attendees.length < 2));
+            || entry.endDate - entry.startDate > ALLDAY_EVENT_LENGTH)
+            && (!entry.attendees || entry.attendees.length < 2));
 }
 
 /**
@@ -142,8 +144,8 @@ function _parseCalendarEntry(event: any, knownDomains: string[]) {
         if (isNaN(startDate)
             || isNaN(endDate)
             || (navigator.product !== 'ReactNative'
-                    && !url
-                    && !event.calendarId)) {
+                && !url
+                && !event.calendarId)) {
             // Ignore the event.
         } else {
             return {
@@ -163,15 +165,17 @@ function _parseCalendarEntry(event: any, knownDomains: string[]) {
 }
 
 /**
- * Retrieves a Jitsi Meet URL from an event if present.
+ * Retrieves a Confgo URL from an event if present.
  *
  * @param {Object} event - The event to parse.
  * @param {Array<string>} knownDomains - The known domain names.
  * @private
  * @returns {string}
  */
-function _getURLFromEvent(event: { description: string; location: string; notes: string; title: string;
-    url: string; }, knownDomains: string[]) {
+function _getURLFromEvent(event: {
+    description: string; location: string; notes: string; title: string;
+    url: string;
+}, knownDomains: string[]) {
     const linkTerminatorPattern = '[^\\s<>$]';
     const urlRegExp
         = `http(s)?://(${knownDomains.join('|')})/${linkTerminatorPattern}+`;

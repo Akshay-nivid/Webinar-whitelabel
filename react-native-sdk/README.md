@@ -1,4 +1,4 @@
-# <p align="center">Jitsi Meet React Native SDK</p>
+# <p align="center">Confgo React Native SDK</p>
 
 
 ## Installation

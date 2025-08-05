@@ -581,7 +581,7 @@
         "answer": "Answer",
         "audioCallTitle": "Incoming call",
         "decline": "Dismiss",
-        "productLabel": "from Jitsi Meet",
+        "productLabel": "from Confgo",
         "videoCallTitle": "Incoming video call"
     },
     "info": {
@@ -850,7 +850,7 @@
         "noiseSuppressionDesktopAudioDescription": "Extra noise suppression can't be enabled while sharing desktop audio, please disable it and try again.",
         "noiseSuppressionFailedTitle": "Failed to start extra noise suppression",
         "noiseSuppressionStereoDescription": "Extra noise suppression is not currently supported with stereo audio.",
-        "oldElectronClientDescription1": "You appear to be using an old version of the Jitsi Meet client which has known security vulnerabilities. Please make sure you update to our ",
+        "oldElectronClientDescription1": "You appear to be using an old version of the Confgo client which has known security vulnerabilities. Please make sure you update to our ",
         "oldElectronClientDescription2": "latest build",
         "oldElectronClientDescription3": " now!",
         "participantWantsToJoin": "Wants to join the meeting",
@@ -1640,7 +1640,7 @@
         "eventInPast":"The event is in the past.",
         "eventInFuture":"The event is in the future.",
         "noData":"No conference where conducting on this ID",
-        "conferenceIDIsEmpty":"Please enter Conference ID",
+        "conferenceIDIsEmpty":"Please enter conference code",
         "roomname": "Enter room name",
         "roomnameHint": "Enter the name or URL of the room you want to join. You may make a name up, just let the people you are meeting know it so that they enter the same name.",
         "sendFeedback": "Send feedback",

@@ -28,23 +28,23 @@ export function screenHeaderCloseButton(goBack: (e?: GestureResponderEvent | Rea
     if (Platform.OS === 'ios') {
         return (
             <HeaderNavigationButton
-                id = { 'close-screen-button' }
-                label = { t('dialog.close') }
-                onPress = { goBack } />
+                id={'close-screen-button'}
+                label={t('dialog.close')}
+                onPress={goBack} />
         );
     }
 
     return (
         <HeaderNavigationButton
-            id = { 'close-screen-button' }
-            onPress = { goBack }
-            src = { IconCloseLarge } />
+            id={'close-screen-button'}
+            onPress={goBack}
+            src={IconCloseLarge} />
     );
 }
 
 /**
  * Determines whether the {@code Prejoin page} is enabled by the app itself
- * (e.g. Programmatically via the Jitsi Meet SDK for Android and iOS).
+ * (e.g. Programmatically via the Confgo SDK for Android and iOS).
  *
  * @param {Function|Object} stateful - The redux state or {@link getState}
  * function.
@@ -68,21 +68,21 @@ export function lobbyScreenHeaderCloseButton() {
     const goBack = useCallback(() => {
         dispatch(cancelKnocking());
         dispatch(appNavigate(undefined));
-    }, [ dispatch ]);
+    }, [dispatch]);
 
     if (Platform.OS === 'ios') {
         return (
             <HeaderNavigationButton
-                id = { 'close-screen-button' }
-                label = { t('dialog.close') }
-                onPress = { goBack } />
+                id={'close-screen-button'}
+                label={t('dialog.close')}
+                onPress={goBack} />
         );
     }
 
     return (
         <HeaderNavigationButton
-            id = { 'close-screen-button' }
-            onPress = { goBack }
-            src = { IconCloseLarge } />
+            id={'close-screen-button'}
+            onPress={goBack}
+            src={IconCloseLarge} />
     );
 }

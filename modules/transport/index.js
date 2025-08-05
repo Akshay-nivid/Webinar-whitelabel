@@ -23,14 +23,14 @@ if (typeof API_ID === 'number') {
 }
 
 /**
- * The instance of Transport class that will be used by Jitsi Meet.
+ * The instance of Transport class that will be used by Confgo.
  *
  * @type {Transport}
  */
 let transport;
 
 /**
- * Returns the instance of Transport class that will be used by Jitsi Meet.
+ * Returns the instance of Transport class that will be used by Confgo.
  *
  * @returns {Transport}
  */

@@ -531,7 +531,7 @@
         "answer": "Jawab",
         "audioCallTitle": "Panggilan Masuk",
         "decline": "Tolak",
-        "productLabel": "dari Jitsi Meet",
+        "productLabel": "dari Confgo",
         "videoCallTitle": "Panggilan Video Masuk"
     },
     "info": {
@@ -789,7 +789,7 @@
         "noiseSuppressionDesktopAudioDescription": "Pengurangan kebisingan tidak dapat diaktifkan saat berbagi audio desktop, harap nonaktifkan dan coba lagi.",
         "noiseSuppressionFailedTitle": "Gagal memulai pengurangan kebisingan",
         "noiseSuppressionStereoDescription": "Pengurangan kebisingan audio stereo saat ini tidak didukung.",
-        "oldElectronClientDescription1": "Anda sepertinya menggunakan versi lama dari klien Jitsi Meet yang memiliki kerentanan keamanan yang diketahui. Pastikan Anda memperbarui ke ",
+        "oldElectronClientDescription1": "Anda sepertinya menggunakan versi lama dari klien Confgo yang memiliki kerentanan keamanan yang diketahui. Pastikan Anda memperbarui ke ",
         "oldElectronClientDescription2": "build terbaru",
         "oldElectronClientDescription3": " sekarang!",
         "participantWantsToJoin": "Ingin bergabung dengan pertemuan",

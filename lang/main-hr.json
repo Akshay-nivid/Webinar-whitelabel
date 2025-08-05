@@ -444,7 +444,7 @@
         "answer": "Odgovori",
         "audioCallTitle": "Dolazni poziv",
         "decline": "Odbij",
-        "productLabel": "od Jitsi Meet",
+        "productLabel": "od Confgo",
         "videoCallTitle": "Dolazni videopoziv"
     },
     "info": {
@@ -691,7 +691,7 @@
         "noiseSuppressionFailedTitle": "Nauspjelo pokretanje suzbijanja šumova",
         "noiseSuppressionNoTrackDescription": "Najprije isključi zvuk tvog mikrofona.",
         "noiseSuppressionStereoDescription": "Suzbijanja šumova stereo zvuka trenutačno nije podržano.",
-        "oldElectronClientDescription1": "Čini se da koristiš staru verziju klijenta Jitsi Meet koja ima poznate sigurnosne probleme. Obavezno aktualiziraj na našu ",
+        "oldElectronClientDescription1": "Čini se da koristiš staru verziju klijenta Confgo koja ima poznate sigurnosne probleme. Obavezno aktualiziraj na našu ",
         "oldElectronClientDescription2": "najnoviju verziju",
         "oldElectronClientDescription3": " sada!",
         "participantWantsToJoin": "Želi se pridružiti sastanku",
