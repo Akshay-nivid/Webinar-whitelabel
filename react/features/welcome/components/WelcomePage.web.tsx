@@ -116,10 +116,10 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
     }
 
     _handleChangeValue(name: string, value: string) {
-        this.setState(prevState => ({
-            ...this.state, [name]: value,
+        this.setState(prev => ({
+            ...prev, [name]: value,
             _errorMessage: {
-                ...prevState._errorMessage,
+                ...prev._errorMessage,
                 [name]: ''
             }
         }));
@@ -293,6 +293,17 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                                 variant="outlined"
                                 size="small"
                                 onChange={(e) => this._handleChangeValue('username', e?.target?.value)}
+                                sx={{
+                                    '& .MuiInputBase-input': {
+                                        fontSize: 14,
+                                    },
+                                    '& .MuiInputLabel-root': {
+                                        fontSize: 14,
+                                    },
+                                    '& .MuiFormHelperText-root': {
+                                        fontSize: 12,
+                                    }
+                                }}
                                 fullWidth
                                 error={this.state._errorMessage.username !== ''}
                                 helperText={this.state._errorMessage.username || ""}
@@ -303,6 +314,17 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                                 label="Password"
                                 variant="outlined"
                                 size="small"
+                                sx={{
+                                    '& .MuiInputBase-input': {
+                                        fontSize: 14,
+                                    },
+                                    '& .MuiInputLabel-root': {
+                                        fontSize: 14,
+                                    },
+                                    '& .MuiFormHelperText-root': {
+                                        fontSize: 12,
+                                    }
+                                }}
                                 type={this.state._show ? 'text' : 'password'}
                                 fullWidth
                                 onChange={(e) => this._handleChangeValue('password', e?.target?.value)}
@@ -313,11 +335,11 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                                         <InputAdornment position="end">
                                             <IconButton
                                                 aria-label={this.state._show ? 'Hide password' : 'Show password'}
-                                                onClick={() => this.state._show = !this.state._show}
+                                                // onClick={() => this.state._show = !this.state._show}
                                                 onMouseDown={(e) => e.preventDefault()}
                                                 onMouseUp={(e) => e.preventDefault()}
                                             >
-                                                {this.state._show ?<MdVisibility />: <MdVisibilityOff /> }
+                                                {this.state._show ? <MdVisibility onClick={() => this.state._show = false} /> : <MdVisibilityOff onClick={() => this.state._show = true} />}
                                             </IconButton>
                                         </InputAdornment>
                                     )

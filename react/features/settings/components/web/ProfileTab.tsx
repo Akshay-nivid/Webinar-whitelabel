@@ -15,6 +15,7 @@ import { translate } from '../../../base/i18n/functions';
 import { withPixelLineHeight } from '../../../base/styles/functions.web';
 import Button from '../../../base/ui/components/web/Button';
 import Input from '../../../base/ui/components/web/Input';
+import { jitsiLocalStorage } from '@jitsi/js-utils';
 
 /**
  * The type of the React {@code Component} props of {@link ProfileTab}.
@@ -124,7 +125,7 @@ class ProfileTab extends AbstractDialogTab<IProps, any> {
         this._onDisplayNameChange = this._onDisplayNameChange.bind(this);
         this._onEmailChange = this._onEmailChange.bind(this);
     }
-
+    _user: any = JSON.parse(jitsiLocalStorage.getItem('user')) || {};
     /**
      * Changes display name of the user.
      *
@@ -161,7 +162,7 @@ class ProfileTab extends AbstractDialogTab<IProps, any> {
             hideEmailInSettings,
             id,
             readOnlyName,
-            t
+            t,
         } = this.props;
         const classes = withStyles.getClasses(this.props);
 
@@ -174,24 +175,26 @@ class ProfileTab extends AbstractDialogTab<IProps, any> {
                 </div>
                 <Input
                     className = { classes.bottomMargin }
-                    disabled = { readOnlyName }
+                    readOnly = { true}
                     id = 'setDisplayName'
                     label = { t('profile.setDisplayNameLabel') }
                     name = 'name'
                     onChange = { this._onDisplayNameChange }
                     placeholder = { t('settings.name') }
                     type = 'text'
-                    value = { displayName } />
+                    value={`${this._user.firstName} ${this._user.lastName}`} />
                 {!hideEmailInSettings && <div className = 'profile-edit-field'>
                     <Input
                         className = { classes.bottomMargin }
                         id = 'setEmail'
-                        label = { t('profile.setEmailLabel') }
+                        // label = { t('profile.setEmailLabel') }
+                        readOnly = { true }
+                        label ="Email"
                         name = 'email'
                         onChange = { this._onEmailChange }
                         placeholder = { t('profile.setEmailInput') }
                         type = 'text'
-                        value = { email } />
+                        value = { `${this._user.email}` } />
                 </div>}
                 { authEnabled && this._renderAuth() }
             </div>
