@@ -2,13 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import moment from 'moment';
+import { jitsiLocalStorage } from '@jitsi/js-utils';
 import { translate, translateToHTML } from '../../base/i18n/functions';
+import MdVisibility from 'react-icons/md/MdVisibility';
+import MdVisibilityOff from 'react-icons/md/MdVisibilityOff';
 import Icon from '../../base/icons/components/Icon';
 import { IconWarning } from '../../base/icons/svg';
 import Watermarks from '../../base/react/components/web/Watermarks';
 import getUnsafeRoomText from '../../base/util/getUnsafeRoomText.web';
 import SettingsButton from '../../settings/components/web/SettingsButton';
-import { Modal, Box, Button, Typography, TextField } from '@mui/material';
+import { Modal, Box, Button, Typography, TextField, InputAdornment, IconButton } from '@mui/material';
 import { SETTINGS_TABS } from '../../settings/constants';
 import { toast } from 'react-toastify';
 import { AbstractWelcomePage, IProps, _mapStateToProps } from './AbstractWelcomePage';
@@ -25,10 +28,12 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
     _additionalToolbarContentTemplate: HTMLTemplateElement | null = document.getElementById('settings-toolbar-additional-content-template') as HTMLTemplateElement;
 
     _API = 'http://localhost:4444';
+    _user: any = JSON.parse(jitsiLocalStorage.getItem('user') )|| {};
 
     static defaultProps = {
         _room: ''
     };
+
 
     constructor(props: IProps) {
         super(props);
@@ -39,15 +44,16 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
             _open: false
         };
 
-        this._changeModalValue = this._changeModalValue.bind(this);
+        this._handleModal = this._handleModal.bind(this);
+        this._handleFecthMeetingDetail = this._handleFecthMeetingDetail.bind(this);
         this._onFormSubmit = this._onFormSubmit.bind(this);
-        this._onRoomChange = this._onRoomChange.bind(this);
+        this._login = this._login.bind(this);
+        this._handleChangeValue = this._handleChangeValue.bind(this);
         this._setAdditionalCardRef = this._setAdditionalCardRef.bind(this);
         this._setAdditionalContentRef = this._setAdditionalContentRef.bind(this);
         this._setRoomInputRef = this._setRoomInputRef.bind(this);
         this._setAdditionalToolbarContentRef = this._setAdditionalToolbarContentRef.bind(this);
     }
-
     override componentDidMount() {
         super.componentDidMount();
 
@@ -64,11 +70,115 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
         document.body.classList.remove('welcome-page');
     }
 
-    _changeModalValue() {
+    _handleModal() {
         this.setState((prevState: any) => ({
             _open: !prevState._open
         }));
     }
+    _onFormSubmit(room?: string, event?: React.FormEvent) {
+        event?.preventDefault();
+        const trimmedRoom = room?.trim();
+        if (!trimmedRoom) {
+            return toast.error(this.props.t(`welcomepage.conferenceIDIsEmpty`));
+        }
+        const forbiddenChars = ['?', '&', ':', '\'', '/', '"', '%', '#', '.'];
+
+        if (forbiddenChars.some(char => trimmedRoom.includes(char))) {
+            return toast.error(this.props.t(`welcomepage.roomNameAllowedChars`))
+        }
+
+        axios.get(`${this._API}/api/event/details/${trimmedRoom}`)
+            .then(({ data }) => {
+                const eventData = data;
+                if (!eventData) return toast.error(this.props.t(`welcomepage.noData`));
+
+                const now = moment();
+                const { eventStartTime, eventEndTime ,id } = eventData;
+                this.setState({...this.state, eventId: id});
+
+                // if (moment(eventEndTime).isBefore(now)) {
+                //     return toast.error(this.props.t(`welcomepage.eventInPast`))
+                // }
+
+                // if (moment(eventStartTime).isAfter(now)) {
+                //     return toast.error(this.props.t(`welcomepage.eventInFuture`))
+                // }
+                if(this._user&& this._user.id){
+                    this._handleFecthMeetingDetail(this._user.id);
+                }else{
+                    this._handleModal()
+                }
+
+            })
+            .catch(err => {
+                console.error('API error:', err);
+                toast.error(`Something went wrong.`)
+            });
+    }
+
+    _handleChangeValue(name: string, value: string) {
+        this.setState(prevState => ({
+            ...this.state, [name]: value,
+            _errorMessage: {
+                ...prevState._errorMessage,
+                [name]: ''
+            }
+        }));
+    }
+
+    _login() {
+        try {
+            let { username, password } = this.state;
+            username= username?.trim();
+            password= password?.trim();
+            const errors: any = {};
+
+            if (!username || username=== '') {
+                errors.username = 'Username is required';
+            }
+
+            if (!password|| password=== '') {
+                errors.password = 'Password is required';
+            }
+            if (errors.username || errors.password) {
+                this.setState({ _errorMessage: errors });
+                return;
+            }
+            axios.post(`${this._API}/api/auth/login`, { username, password })
+                .then(({ data }) => {
+                    if (data.status=='success') {
+                        this.state._errorMessage = { username: '', password: '' };
+                        jitsiLocalStorage.setItem('user', JSON.stringify(data.data));
+                        this._handleFecthMeetingDetail(data.data.id);
+                    }
+                })
+                .catch(err => {
+                    console.error('Login error:', err);
+                    toast.error(err.response?.data?.message || 'Something went wrong.');
+                });
+
+        } catch (e) {
+            console.error('Login error:', e);
+            toast.error(`Something went wrong.`)
+        }
+    }
+        _handleFecthMeetingDetail(userId: string){
+            try{
+                axios.get(`${this._API}/api/event/meta?userId=${userId}&eventId=${this.state.eventId}`)
+                .then(({data})=>{
+                    super._handleFecthMeetingDetail(data?.meetingUniqueId || '');
+                    if (!this._roomInputRef || this._roomInputRef.reportValidity()) {
+                        this._onJoin();
+                    }
+                })
+                    .catch((err) => { toast.error(`Something went wrong,please contact administrator.`) });
+
+            }catch (e) {
+                console.error('Fetch meeting detail error:', e);
+                toast.error(`meeting detail not found.`)
+            }
+        }
+
 
     override render() {
         const { _moderatedRoomServiceUrl, t } = this.props;
@@ -125,8 +235,8 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                                     className="enter-room-input"
                                     placeholder="enter conference code"
                                     type="text"
-                                    value={this.state.room}
-                                    onChange={(e) => this._onRoomChange(e.target?.value)}
+                                    value={this.state.conferenceCode}
+                                    onChange={(e) => this._handleChangeValue('conferenceCode',e.target?.value)}
                                     ref={this._setRoomInputRef}
                                     autoFocus
                                     aria-label="Meeting name input"
@@ -135,7 +245,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                         </div>
                         <button
                             className="welcome-page-button"
-                            onClick={(e) => this._onFormSubmit(this.state.room, e)}
+                            onClick={(e) => this._onFormSubmit(this.state.conferenceCode, e)}
                             type="button"
                         >
                             {t('welcomepage.startMeeting')}
@@ -144,7 +254,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                 </div>
                 <Modal
                     open={this.state._open}
-                    onClose={this._changeModalValue}
+                    onClose={this._handleModal}
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
@@ -154,14 +264,14 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
                         width: 400,
-                        height:300,
+                        height: 240,
                         bgcolor: 'background.paper',
                         border: '2px solid #000',
                         boxShadow: 24,
-                        borderRadius:"8px",
+                        borderRadius: "8px",
                         p: 4
                     }}>
-                        <Typography id="modal-modal-title" variant="h6" component="h2" sx={{fontWeight:"400px"}}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ fontWeight: "400px" }}>
                             Sign in
                         </Typography>
                         <Box
@@ -170,7 +280,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                             autoComplete="off"
                             sx={{
                                 m: 1,
-                                height: '300px',
+                                height: 210,
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'space-around',
@@ -178,9 +288,46 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                                 mt: 1
                             }}
                         >
-                            <TextField id="field-1" label="User name" variant="outlined" fullWidth />
-                            <TextField id="field-2" label="Password" variant="outlined" type="password" fullWidth />
-                            <Button variant="contained">Enter Meeting</Button>
+                            <TextField
+                                id="field-1"
+                                label="Username"
+                                variant="outlined"
+                                size="small"
+                                onChange={(e) => this._handleChangeValue('username', e?.target?.value)}
+                                fullWidth
+                                error={this.state._errorMessage.username !== ''}
+                                helperText={this.state._errorMessage.username || ""}
+                            />
+
+                            <TextField
+                                id="field-2"
+                                label="Password"
+                                variant="outlined"
+                                size="small"
+                                type={this.state._show ? 'text' : 'password'}
+                                fullWidth
+                                onChange={(e) => this._handleChangeValue('password', e?.target?.value)}
+                                error={this.state._errorMessage.password !== ''}
+                                helperText={this.state._errorMessage.password || ''}
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label={this.state._show ? 'Hide password' : 'Show password'}
+                                                onClick={() => this.state._show = !this.state._show}
+                                                onMouseDown={(e) => e.preventDefault()}
+                                                onMouseUp={(e) => e.preventDefault()}
+                                            >
+                                                {this.state._show ? <MdVisibilityOff /> : <MdVisibility />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    )
+                                }}
+                            />
+
+
+                            <Button
+                                variant="contained" onClick={this._login} sx={{height:43}} fullWidth>Enter Meeting</Button>
                         </Box>
 
                     </Box>
@@ -218,52 +365,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
         }
     }
 
-    _onFormSubmit(room: string, event?: React.FormEvent) {
-        event?.preventDefault();
-        const trimmedRoom = room.trim();
-        this._changeModalValue()
-        if (!trimmedRoom) {
-            return toast.error(this.props.t(`welcomepage.conferenceIDIsEmpty`));
-        }
-        const forbiddenChars = ['?', '&', ':', '\'', '/', '"', '%', '#', '.'];
 
-        if (forbiddenChars.some(char => trimmedRoom.includes(char))) {
-            return toast.error(this.props.t(`welcomepage.roomNameAllowedChars`))
-        }
-
-        axios.get(`${this._API}/api/event/details/${trimmedRoom}`)
-            .then(({ data }) => {
-                const eventData = data;
-                if (!eventData) return toast.error(this.props.t(`welcomepage.noData`));
-
-                const now = moment();
-                const { eventStartTime, eventEndTime } = eventData;
-
-                if (moment(eventEndTime).isBefore(now)) {
-                    return toast.error(this.props.t(`welcomepage.eventInPast`))
-                }
-
-                if (moment(eventStartTime).isAfter(now)) {
-                    return toast.error(this.props.t(`welcomepage.eventInFuture`))
-                }
-                this._changeModalValue()
-                if (!this._roomInputRef || this._roomInputRef.reportValidity()) {
-                    this._onJoin();
-                }
-            })
-            .catch(err => {
-                console.error('API error:', err);
-                toast.error(`Something went wrong.`)
-            });
-    }
-
-    _onRoomChange(value: string) {
-        const forbiddenChars = ['?', '&', ':', '\'', '"', '%', '#', '.'];
-        if (forbiddenChars.some(char => value.includes(char))) {
-            return toast.error(this.props.t(`welcomepage.roomNameAllowedChars`))
-        }
-        super._onRoomChange(value);
-    }
 
     _setAdditionalCardRef(el: HTMLDivElement) { this._additionalCardRef = el; }
     _setAdditionalContentRef(el: HTMLDivElement) { this._additionalContentRef = el; }

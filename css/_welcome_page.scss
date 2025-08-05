@@ -158,6 +158,11 @@ body.welcome-page {
                         outline: auto 2px #fbfbfb;
                     }
                 }
+
+                .enter-room-input::placeholder {
+                    opacity: 0.5;
+                    color: #999;
+                }
             }
 
         }
@@ -239,6 +244,9 @@ body.welcome-page {
             background-color: $welcomePageButtonHoverBg;
         }
     }
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+            height: 13px !important;
+        }
 
     .welcome-page-settings {
         background: rgba(255, 255, 255, 0.38);

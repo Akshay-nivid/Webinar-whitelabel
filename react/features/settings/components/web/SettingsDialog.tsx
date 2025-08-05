@@ -174,12 +174,6 @@ function _mapStateToProps(state: IReduxState, ownProps: any) {
             labelKey: 'settings.video',
             props: getVideoDeviceSelectionDialogProps(state, isDisplayedOnWelcomePage),
             propsUpdateFunction: (tabState: any, newProps: ReturnType<typeof getVideoDeviceSelectionDialogProps>) => {
-                // Ensure the device selection tab gets updated when new devices
-                // are found by taking the new props and only preserving the
-                // current user selected devices. If this were not done, the
-                // tab would keep using a copy of the initial props it received,
-                // leaving the device list to become stale.
-
                 return {
                     ...newProps,
                     currentFramerate: tabState?.currentFramerate,
@@ -291,8 +285,6 @@ function _mapStateToProps(state: IReduxState, ownProps: any) {
         labelKey: 'settings.shortcuts',
         props: getShortcutsTabProps(state, isDisplayedOnWelcomePage),
         propsUpdateFunction: (tabState: any, newProps: ReturnType<typeof getShortcutsTabProps>) => {
-            // Updates tab props, keeping users selection
-
             return {
                 ...newProps,
                 keyboardShortcutsEnabled: tabState?.keyboardShortcutsEnabled
@@ -309,8 +301,6 @@ function _mapStateToProps(state: IReduxState, ownProps: any) {
             labelKey: 'settings.more',
             props: moreTabProps,
             propsUpdateFunction: (tabState: any, newProps: typeof moreTabProps) => {
-                // Updates tab props, keeping users selection
-
                 return {
                     ...newProps,
                     currentLanguage: tabState?.currentLanguage,

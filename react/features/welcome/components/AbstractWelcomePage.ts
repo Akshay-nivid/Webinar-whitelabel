@@ -61,6 +61,7 @@ export interface IProps extends WithTranslation {
 
 interface IState {
     _fieldFocused?: boolean;
+    eventId?: number;
     animateTimeoutId?: number;
     generateRoomNames?: string;
     generatedRoomName: string;
@@ -68,11 +69,18 @@ interface IState {
     insecureRoomName: boolean;
     isSettingsScreenFocused?: boolean;
     joining: boolean;
+    _errorMessage: {
+        [key: string]: string;
+    };
     _open: boolean;
     room: string;
+    _show?: boolean;
+    conferenceCode?: string;
     roomNameInputAnimation?: any;
-    openModal?:any;
+    openModal?: any;
     roomPlaceholder: string;
+    username: string;
+    password: string;
     updateTimeoutId?: number;
 }
 
@@ -102,10 +110,19 @@ export class AbstractWelcomePage<P extends IProps> extends Component<P, IState> 
         generatedRoomName: '',
         generateRoomNames: undefined,
         insecureRoomName: false,
-        _open:false,
+        _open: false,
         joining: false,
+        conferenceCode:"",
         room: '',
-        openModal:undefined,
+        _errorMessage: {
+            username: '',
+            password: '',
+        },
+        username: '',
+        eventId:undefined,
+        _show: false,
+        password: '',
+        openModal: undefined,
         roomPlaceholder: '',
         updateTimeoutId: undefined,
         _fieldFocused: false,
@@ -127,7 +144,7 @@ export class AbstractWelcomePage<P extends IProps> extends Component<P, IState> 
         this._animateRoomNameChanging
             = this._animateRoomNameChanging.bind(this);
         this._onJoin = this._onJoin.bind(this);
-        this._onRoomChange = this._onRoomChange.bind(this);
+        this._handleFecthMeetingDetail = this._handleFecthMeetingDetail.bind(this);
         this._renderInsecureRoomNameWarning = this._renderInsecureRoomNameWarning.bind(this);
         this._updateRoomName = this._updateRoomName.bind(this);
     }
@@ -210,6 +227,7 @@ export class AbstractWelcomePage<P extends IProps> extends Component<P, IState> 
      */
     _onJoin() {
         const room = this.state.room || this.state.generatedRoomName;
+        console.log('Joining room:', room);
 
         sendAnalytics(
             createWelcomePageEvent('clicked', 'joinButton', {
@@ -223,8 +241,8 @@ export class AbstractWelcomePage<P extends IProps> extends Component<P, IState> 
             // By the time the Promise of appNavigate settles, this component
             // may have already been unmounted.
             const
-            onAppNavigateSettled
-                = () => this._mounted && this.setState({ joining: false });
+                onAppNavigateSettled
+                    = () => this._mounted && this.setState({ joining: false });
 
             this.props.dispatch(appNavigate(room))
                 .then(onAppNavigateSettled, onAppNavigateSettled);
@@ -239,7 +257,7 @@ export class AbstractWelcomePage<P extends IProps> extends Component<P, IState> 
      * @protected
      * @returns {void}
      */
-    _onRoomChange(value: string) {
+    _handleFecthMeetingDetail(value: string) {
         this.setState({
             room: value,
             insecureRoomName: Boolean(this.props._enableInsecureRoomNameWarning && value && isInsecureRoomName(value))
