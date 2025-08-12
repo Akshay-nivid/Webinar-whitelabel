@@ -39,6 +39,7 @@ import logger from '../../logger';
 import { hasDisplayName } from '../../utils';
 
 import JoinByPhoneDialog from './dialogs/JoinByPhoneDialog';
+import { jitsiLocalStorage } from '@jitsi/js-utils';
 
 interface IProps {
 
@@ -240,11 +241,13 @@ const Prejoin = ({
     const [ showJoinByPhoneButtons, setShowJoinByPhoneButtons ] = useState(false);
     const { classes } = useStyles();
     const { t } = useTranslation();
+    const userString = jitsiLocalStorage.getItem('user');
+    const _user: any = userString ? JSON.parse(userString) : null;
     const dispatch = useDispatch();
 
     /**
      * Handler for the join button.
-     *
+     *)
      * @param {Object} e - The synthetic event.
      * @returns {void}
      */
@@ -424,7 +427,7 @@ const Prejoin = ({
                     onKeyPress = { showUnsafeRoomWarning && !unsafeRoomConsent ? undefined : onInputKeyPress }
                     placeholder = { t('dialog.enterDisplayName') }
                     readOnly = { readOnlyName }
-                    value = { name } />
+                    value={_user ? `${_user.firstName} ${_user.lastName}` :"" } />
                 ) : (
                     <div className = { classes.avatarContainer }>
                         <Avatar
