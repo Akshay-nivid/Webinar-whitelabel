@@ -18,6 +18,7 @@ import ConnectionStatus from './ConnectionStatus';
 import Preview from './Preview';
 import RecordingWarning from './RecordingWarning';
 import UnsafeRoomWarning from './UnsafeRoomWarning';
+import { jitsiLocalStorage } from '@jitsi/js-utils';
 
 interface IProps {
 
@@ -203,7 +204,7 @@ const PreMeetingScreen = ({
 
     const roomNameRef = useRef<HTMLSpanElement | null>(null);
     const [ isOverflowing, setIsOverflowing ] = useState(false);
-
+const roomcode = jitsiLocalStorage.getItem('roomCode') || '';
     useEffect(() => {
         if (roomNameRef.current) {
             const element = roomNameRef.current;
@@ -224,21 +225,21 @@ const PreMeetingScreen = ({
                         <h1 className = { classes.title }>
                             {title}
                         </h1>
-                        {_roomName && (
+                        {roomcode && (
                             <span className = { classes.roomNameContainer }>
                                 {isOverflowing ? (
-                                    <Tooltip content = { _roomName }>
+                                    <Tooltip content = { roomcode }>
                                         <span
                                             className = { classes.roomName }
                                             ref = { roomNameRef }>
-                                            {_roomName}
+                                            {roomcode}
                                         </span>
                                     </Tooltip>
                                 ) : (
                                     <span
                                         className = { classes.roomName }
                                         ref = { roomNameRef }>
-                                        {_roomName}
+                                        {roomcode}
                                     </span>
                                 )}
                             </span>

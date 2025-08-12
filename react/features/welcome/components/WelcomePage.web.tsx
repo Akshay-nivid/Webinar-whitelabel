@@ -102,6 +102,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                 // if (moment(eventStartTime).isAfter(now)) {
                 //     return toast.error(this.props.t(`welcomepage.eventInFuture`))
                 // }
+                jitsiLocalStorage.setItem('roomCode', trimmedRoom);
                 if (this._user && this._user.id) {
                     this._handleFecthMeetingDetail(this._user.id);
                 } else {
