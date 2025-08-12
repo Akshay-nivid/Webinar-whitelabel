@@ -21,6 +21,7 @@ import { appendURLHashParam } from '../base/util/uri';
 import { disableKeyboardShortcuts, enableKeyboardShortcuts } from '../keyboard-shortcuts/actions';
 import { toggleBackgroundEffect } from '../virtual-background/actions';
 import virtualBackgroundLogger from '../virtual-background/logger';
+import { jitsiLocalStorage } from '@jitsi/js-utils';
 
 import {
     SET_AUDIO_SETTINGS_VISIBILITY,
@@ -35,8 +36,10 @@ import {
     getProfileTabProps,
     getShortcutsTabProps
 } from './functions.web';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
-
+const _API = 'http://localhost:4444';
 /**
  * Opens {@code LogoutDialog}.
  *
@@ -216,6 +219,34 @@ export function submitProfileTab(newState: any) {
         if (newState.email !== currentState.email) {
             APP.conference.changeLocalEmail(newState.email);
         }
+        let username = newState.displayName;
+        let password = newState.password;
+        username = username?.trim();
+        password = password?.trim();
+        const errors: any = {};
+
+        if (!username || username === '') {
+            errors.username = 'Username is required';
+        }
+
+        if (!password || password === '') {
+            errors.password = 'Password is required';
+        }
+        console.log('Submitting profile tab with:', { username, password });
+        axios.post(`${_API}/api/auth/login`, { username, password })
+            .then(({ data }) => {
+                if (data.status == 'success') {
+                    jitsiLocalStorage.setItem('user', JSON.stringify(data.data));
+                    toast.success('Login successful');
+                    dispatch(updateSettings({ displayName: getNormalizedDisplayName(`${data.data.firstName} ${data.data?.lastName}`) }));
+                    window.location.reload();
+
+                }
+            })
+            .catch(err => {
+                console.error('Login error:', err);
+                toast.error(err.response?.data?.message || 'Something went wrong.');
+            });
     };
 }
 
@@ -333,8 +364,7 @@ export function submitVirtualBackgroundTab(newState: any, isCancel = false) {
                     localFlipX
                 }));
 
-                virtualBackgroundLogger.info(`Virtual background type: '${
-                    typeof newState.options.backgroundType === 'undefined'
+                virtualBackgroundLogger.info(`Virtual background type: '${typeof newState.options.backgroundType === 'undefined'
                         ? 'none' : newState.options.backgroundType}' applied!`);
             }
         }

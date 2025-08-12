@@ -22,6 +22,7 @@ const DEFAULT_STATE: ISettingsState = {
     disableCrashReporting: undefined,
     disableP2P: undefined,
     disableSelfView: false,
+    password: undefined,
     displayName: undefined,
     email: undefined,
     localFlipX: true,
@@ -61,6 +62,7 @@ export interface ISettingsState {
     disableP2P?: boolean;
     disableSelfView?: boolean;
     displayName?: string;
+    password?: string;
     email?: string;
     hideShareAudioHelper?: boolean;
     localFlipX?: boolean;
@@ -159,7 +161,8 @@ function _initSettings(featureState: ISettingsState) {
 
     settings = assignIfDefined({
         displayName,
-        email
+        email,
+        password: jitsiLocalStorage.getItem('password')
     }, settings);
 
     return settings;

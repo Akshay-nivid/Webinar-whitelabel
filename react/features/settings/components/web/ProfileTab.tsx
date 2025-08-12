@@ -89,7 +89,10 @@ class ProfileTab extends AbstractDialogTab<IProps, IState> {
 
         if (field === 'name') {
             super._onChange({ displayName: value });
+        }else{
+            super._onChange({ password: value });
         }
+
     }
 
     _onEmailChange(value: string) {

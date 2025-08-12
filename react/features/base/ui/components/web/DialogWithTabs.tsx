@@ -169,6 +169,7 @@ const DialogWithTabs = ({
     titleKey,
     tabs
 }: IProps) => {
+
     const { classes, cx } = useStyles();
     const dispatch = useDispatch();
     const { t } = useTranslation();
@@ -177,6 +178,7 @@ const DialogWithTabs = ({
     const [tabStates, setTabStates] = useState(tabs.map(tab => tab.props));
     const videoSpaceWidth = useSelector((state: IReduxState) => state['features/base/responsive-ui'].videoSpaceWidth);
     const [isMobile, setIsMobile] = useState(false);
+    const _user: any = JSON.parse(jitsiLocalStorage.getItem('user')) || null;
     useEffect(() => {
         if (videoSpaceWidth <= MOBILE_BREAKPOINT) {
             !isMobile && setIsMobile(true);
@@ -402,10 +404,17 @@ const DialogWithTabs = ({
 
                         <Button
                             id='modal-dialog-ok-button'
-                            labelKey="Logout"
-                            type={BUTTON_TYPES.DESTRUCTIVE}
+                            labelKey={_user ? "Logout" : "Login"}
+                            type={_user ? BUTTON_TYPES.DESTRUCTIVE : BUTTON_TYPES.PRIMARY}
                             // labelKey={'dialog.Ok'}
-                            onClick={()=>jitsiLocalStorage.removeItem('user')} />
+                            onClick={() => {
+                                if (_user) {
+                                    jitsiLocalStorage.removeItem('user')
+                                    window.location.reload();
+                                } else {
+                                    onSubmit()
+                                }
+                            }} />
                     </div> : <div
                         className={cx(classes.buttonContainer, classes.footer)}>
                         <Button

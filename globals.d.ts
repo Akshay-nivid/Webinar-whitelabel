@@ -39,5 +39,11 @@ declare global {
         setSinkId: (id: string) => Promise<void>;
         stop: () => void;
     }
+    // src/types/jitsi-js-utils.d.ts
+    declare module '@jitsi/js-utils' {
+        const content: any;
+        export = content;
+    }
+
 }
 export {};
